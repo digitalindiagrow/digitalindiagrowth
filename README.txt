@@ -23,7 +23,7 @@ Latest update:
 Latest fix:
 - Landing page slider now shows proper full 3 cards on desktop
 - Website slider now shows proper full 2 cards on desktop
-- Added contact numbers: 9871031423 and 706508015
+- Added contact numbers: 9871031423
 
 Latest redesign:
 - Landing page section now shows 2 cards per slide on desktop
