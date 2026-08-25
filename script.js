@@ -1,194 +1,337 @@
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
-const leadForm = document.getElementById('leadForm');
-const formNote = document.getElementById('formNote');
+const menuBtn=document.querySelector('.menu-btn'),nav=document.querySelector('.nav');
+if(menuBtn&&nav)menuBtn.addEventListener('click',()=>{const open=menuBtn.classList.toggle('open');nav.classList.toggle('open',open);menuBtn.setAttribute('aria-expanded',open)});
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{menuBtn.classList.remove('open');nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxuD1Yuy1hcVnIRdoNnRpK2J9wceHJwX8MEVZBFs8Cb3UnjY5QBGaUleAlvm7MGD2-xAA/exec';
+const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}}),{threshold:.13});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 
-document.getElementById('year').textContent = new Date().getFullYear();
+const countObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;const el=entry.target,target=parseFloat(el.dataset.count),decimal=!Number.isInteger(target),prefix=el.dataset.prefix||'',suffix=el.dataset.suffix||'',start=performance.now(),duration=1500;function tick(now){const p=Math.min((now-start)/duration,1),ease=1-Math.pow(1-p,3),value=target*ease;el.textContent=prefix+(decimal?value.toFixed(1):Math.round(value))+suffix;if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick);countObserver.unobserve(el)}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>countObserver.observe(el));
 
-menuToggle.addEventListener('click', () => {
-  navMenu.classList.toggle('active');
-  menuToggle.textContent = navMenu.classList.contains('active') ? '×' : '☰';
-});
-
-document.querySelectorAll('.nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('active');
-    menuToggle.textContent = '☰';
-  });
-});
-
-leadForm.addEventListener('submit', async (e) => {
+const leadForm=document.getElementById('leadForm');
+if(leadForm)leadForm.addEventListener('submit',async e=>{
   e.preventDefault();
+  const form=e.currentTarget;
+  const submitButton=form.querySelector('button[type="submit"]');
+  const status=form.querySelector('.form-status');
+  const sheetEndpoint=form.dataset.sheetEndpoint.trim();
+  const whatsappNumber=form.dataset.whatsapp;
+  const data=new FormData(form);
+  data.append('timestamp',new Date().toISOString());
+  data.append('source','Digital India Grow Website');
+  data.append('page_url',location.href);
 
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const service = document.getElementById('service').value;
-  const message = document.getElementById('message').value.trim();
+  const message=[
+    'New Free Consultation Request',
+    `Name: ${data.get('name')}`,
+    `Phone: ${data.get('phone')}`,
+    `Email: ${data.get('email')}`,
+    `Website: ${data.get('website')||'Not provided'}`,
+    `Requirement: ${data.get('requirement')}`
+  ].join('\n');
+  const whatsappUrl=`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-  const formData = new FormData();
-  formData.append('name', name);
-  formData.append('phone', phone);
-  formData.append('service', service);
-  formData.append('message', message);
-  formData.append('source', 'Digital India Grow Website');
-  formData.append('submittedAt', new Date().toLocaleString());
+  // Open WhatsApp synchronously, while the click gesture is still active.
+  // Doing this after `await` gets the popup blocked on mobile browsers.
+  const whatsappWindow=openWhatsapp(whatsappUrl);
 
-  try {
-    await fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: formData
-    });
+  submitButton.disabled=true;
+  submitButton.dataset.label=submitButton.innerHTML;
+  submitButton.textContent='Submitting...';
+  status.className='form-status';
 
-    formNote.style.display = 'block';
-    formNote.textContent = 'Thank you. Your enquiry has been submitted successfully.';
-
-    const num = '919871031423';
-
-    const text =
-      `Hi Digital India Grow, I am interested in your service.%0A%0A` +
-      `Name: ${encodeURIComponent(name)}%0A` +
-      `Phone: ${encodeURIComponent(phone)}%0A` +
-      `Service: ${encodeURIComponent(service)}%0A` +
-      `Message: ${encodeURIComponent(message)}`;
-
-    window.open(`https://wa.me/${num}?text=${text}`, '_blank');
-
-    leadForm.reset();
-
-  } catch (error) {
-    formNote.style.display = 'block';
-    formNote.textContent = 'Something went wrong. Please try again.';
-    console.error('Form submission error:', error);
+  try{
+    const saved=sheetEndpoint?await saveLead(sheetEndpoint,data):null;
+    showLeadStatus(status,saved,whatsappWindow,whatsappUrl);
+    if(saved===null||saved.ok)form.reset();
+  }catch(error){
+    status.textContent='Request submit nahi hui. Please call +91 98710 31423.';
+    status.classList.add('show','error');
+  }finally{
+    submitButton.disabled=false;
+    submitButton.innerHTML=submitButton.dataset.label;
   }
 });
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);
+function openWhatsapp(url){
+  const win=window.open(url,'_blank','noopener,noreferrer');
+  return win||null;
+}
+
+// Posts as urlencoded (not FormData) so Apps Script fills e.parameter, and reads
+// the real JSON reply. `no-cors` used to hide every server-side failure.
+async function saveLead(endpoint,data){
+  const params=new URLSearchParams();
+  data.forEach((value,key)=>params.append(key,value));
+  const response=await fetch(endpoint,{method:'POST',body:params});
+  if(!response.ok)return{ok:false,message:`Server returned ${response.status}`};
+  const text=await response.text();
+  try{
+    const parsed=JSON.parse(text);
+    // endpoints in this account reply with ok / status:'success' / success — accept all three
+    return{ok:parsed.ok===true||parsed.status==='success'||parsed.success===true,message:parsed.message||text};
+  }catch(error){
+    return{ok:false,message:'Server ne unexpected reply bheji: '+text.slice(0,120)};
+  }
+}
+
+function showLeadStatus(status,saved,whatsappWindow,whatsappUrl){
+  if(saved&&!saved.ok){
+    status.textContent='Request save nahi hui. Please call +91 98710 31423.';
+    status.classList.add('show','error');
+    console.error('Lead endpoint error:',saved.message);
+    return;
+  }
+  status.classList.add('show');
+  if(whatsappWindow){
+    status.textContent=saved?'Request saved. WhatsApp confirmation is opening…':'Details ready. WhatsApp par request send karein.';
+    return;
+  }
+  status.innerHTML=(saved?'Request saved. ':'')+`<a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">WhatsApp par confirm karein →</a>`;
+}
+
+const header=document.querySelector('.header');if(header)addEventListener('scroll',()=>header.style.boxShadow=scrollY>30?'0 8px 30px rgba(38,25,87,.08)':'none',{passive:true});
+
+document.querySelectorAll('[data-portfolio-slider]').forEach(slider=>{
+  const viewport=slider.querySelector('.portfolio-viewport');
+  const track=slider.querySelector('.portfolio-track');
+  const cards=[...slider.querySelectorAll('.portfolio-card')];
+  const prev=slider.parentElement.querySelector('.portfolio-prev');
+  const next=slider.parentElement.querySelector('.portfolio-next');
+  const dots=slider.querySelector('.portfolio-dots');
+  let index=0;
+  let visible=3;
+  let startX=0;
+
+  const visibleCards=()=>innerWidth<=650?Number(slider.dataset.mobile||1):innerWidth<=980?Number(slider.dataset.tablet||2):Number(slider.dataset.desktop||3);
+  const render=()=>{
+    visible=Math.min(visibleCards(),cards.length);
+    const gap=parseFloat(getComputedStyle(track).gap)||18;
+    const cardWidth=(viewport.clientWidth-gap*(visible-1))/visible;
+    const maxIndex=Math.max(0,cards.length-visible);
+    index=Math.min(index,maxIndex);
+    cards.forEach(card=>card.style.flexBasis=`${cardWidth}px`);
+    track.style.transform=`translate3d(${-index*(cardWidth+gap)}px,0,0)`;
+    prev.disabled=index===0;
+    next.disabled=index===maxIndex;
+    dots.innerHTML='';
+    for(let dotIndex=0;dotIndex<=maxIndex;dotIndex++){
+      const dot=document.createElement('button');
+      dot.type='button';
+      dot.className=`portfolio-dot${dotIndex===index?' active':''}`;
+      dot.setAttribute('aria-label',`Go to slide ${dotIndex+1}`);
+      dot.addEventListener('click',()=>{index=dotIndex;render()});
+      dots.appendChild(dot);
     }
+  };
+
+  prev.addEventListener('click',()=>{index=Math.max(0,index-1);render()});
+  next.addEventListener('click',()=>{index=Math.min(cards.length-visible,index+1);render()});
+  viewport.addEventListener('touchstart',event=>{startX=event.changedTouches[0].clientX},{passive:true});
+  viewport.addEventListener('touchend',event=>{
+    const distance=event.changedTouches[0].clientX-startX;
+    if(Math.abs(distance)<45)return;
+    index=distance<0?Math.min(cards.length-visible,index+1):Math.max(0,index-1);
+    render();
+  },{passive:true});
+  addEventListener('resize',render,{passive:true});
+  render();
+});
+
+const projectModal=document.getElementById('projectModal');
+const projectForm=document.getElementById('projectConnectForm');
+let projectModalTrigger=null;
+const openProjectModal=trigger=>{
+  projectModalTrigger=trigger;
+  projectModal.hidden=false;
+  document.body.classList.add('modal-open');
+  requestAnimationFrame(()=>projectModal.querySelector('input').focus());
+};
+const closeProjectModal=()=>{
+  projectModal.hidden=true;
+  document.body.classList.remove('modal-open');
+  projectModalTrigger?.focus();
+};
+document.querySelectorAll('[data-open-project-modal]').forEach(button=>button.addEventListener('click',()=>{
+  if(button.dataset.projectType&&projectForm.elements.project){
+    projectForm.elements.project.value=button.dataset.projectType;
+    projectForm.dataset.cardTitle=button.dataset.projectReference||button.dataset.projectType;
+  }
+  openProjectModal(button);
+}));
+if(projectModal)projectModal.querySelectorAll('[data-close-project-modal]').forEach(button=>button.addEventListener('click',closeProjectModal));
+document.addEventListener('keydown',event=>{if(projectModal&&event.key==='Escape'&&!projectModal.hidden)closeProjectModal()});
+document.querySelectorAll('.service-card>a').forEach(arrow=>{
+  const card=arrow.closest('.service-card');
+  const rawTitle=card.querySelector('h3').innerText.replace(/\s+/g,' ').trim();
+  const serviceMap={
+    'Website Development':'Website Development',
+    'AI Integrated Website Chatbot':'AI Chatbot Integration',
+    'Social Media Handling':'Graphic Design Services',
+    'Performance Marketing':'Advertising Services',
+    'SEO':'SEO Services'
+  };
+  arrow.setAttribute('aria-haspopup','dialog');
+  arrow.setAttribute('aria-label',`Discuss ${rawTitle}`);
+  arrow.addEventListener('click',event=>{
+    event.preventDefault();
+    projectForm.elements.project.value=serviceMap[rawTitle]||'Other';
+    projectForm.dataset.cardTitle=rawTitle;
+    openProjectModal(arrow);
   });
-}, { threshold: 0.12 });
+});
+document.querySelectorAll('.portfolio-card .portfolio-body').forEach(body=>{
+  const liveLink=body.querySelector('.portfolio-link');
+  const card=body.closest('.portfolio-card');
+  const section=body.closest('.portfolio-section');
+  const actions=document.createElement('div');
+  const connect=document.createElement('button');
+  const projectType=section.id==='landing-showcase'?'Landing Page':section.id==='ecommerce-showcase'?'E-Commerce Website':'Business Website';
+  actions.className='portfolio-actions';
+  connect.type='button';
+  connect.className='portfolio-connect';
+  connect.innerHTML='Connect <span aria-hidden="true">&#8594;</span>';
+  liveLink.before(actions);
+  actions.append(liveLink,connect);
+  connect.addEventListener('click',()=>{
+    projectForm.elements.project.value=projectType;
+    projectForm.dataset.cardTitle=card.querySelector('h3').textContent.trim();
+    openProjectModal(connect);
+  });
+});
+if(projectForm)projectForm.addEventListener('submit',async event=>{
+  event.preventDefault();
+  const data=new FormData(projectForm);
+  const submitButton=projectForm.querySelector('button[type="submit"]');
+  const status=projectForm.querySelector('.project-form-status');
+  const sheetEndpoint=leadForm.dataset.sheetEndpoint.trim();
+  const sheetData=new FormData();
+  sheetData.append('name',data.get('name'));
+  sheetData.append('phone',data.get('phone'));
+  sheetData.append('email',data.get('email')||'');
+  sheetData.append('website','');
+  sheetData.append('requirement',data.get('project'));
+  sheetData.append('source',`Project Popup — ${projectForm.dataset.cardTitle||'General enquiry'}`);
+  sheetData.append('page_url',location.href);
+  const message=[
+    'Hi Digital India Grow, I would like a free project consultation.',
+    `Name: ${data.get('name')}`,
+    `Phone: ${data.get('phone')}`,
+    `Email: ${data.get('email')||'Not provided'}`,
+    `Project: ${data.get('project')}`,
+    `Reference: ${projectForm.dataset.cardTitle||'General enquiry'}`
+  ].join('\n');
+  const whatsappUrl=`https://wa.me/${projectForm.dataset.whatsapp}?text=${encodeURIComponent(message)}`;
+  const whatsappWindow=openWhatsapp(whatsappUrl);
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-function initMultiSlider(slider) {
-  const track = slider.querySelector('.multi-track');
-  const cards = Array.from(track.children);
-  const prev = slider.querySelector('.prev');
-  const next = slider.querySelector('.next');
-  const dotsWrap = slider.querySelector('.slider-dots');
-  let currentIndex = 0;
-  let autoplay;
-
-  function cardsPerView() {
-    const desktop = parseInt(slider.dataset.desktop || '3', 10);
-    const tablet = parseInt(slider.dataset.tablet || '2', 10);
-    const mobile = parseInt(slider.dataset.mobile || '1', 10);
-
-    if (window.innerWidth <= 620) return mobile;
-    if (window.innerWidth <= 900) return tablet;
-    return desktop;
-  }
-
-  function gapSize() {
-    const style = window.getComputedStyle(track);
-    return parseFloat(style.columnGap || style.gap || 20) || 20;
-  }
-
-  function maxIndex() {
-    return Math.max(cards.length - cardsPerView(), 0);
-  }
-
-  function updateCardWidths() {
-    const perView = cardsPerView();
-    const gap = gapSize();
-    const width = (slider.querySelector('.slider-viewport').clientWidth - (gap * (perView - 1))) / perView;
-
-    cards.forEach(card => {
-      card.style.flex = `0 0 ${width}px`;
-      card.style.maxWidth = `${width}px`;
-    });
-  }
-
-  function renderDots() {
-    dotsWrap.innerHTML = '';
-    const totalDots = maxIndex() + 1;
-
-    for (let i = 0; i < totalDots; i++) {
-      const dot = document.createElement('button');
-      dot.classList.toggle('active', i === currentIndex);
-      dot.addEventListener('click', () => {
-        currentIndex = i;
-        update();
-      });
-      dotsWrap.appendChild(dot);
+  submitButton.disabled=true;
+  const originalLabel=submitButton.innerHTML;
+  submitButton.textContent='Submitting...';
+  status.className='project-form-status';
+  try{
+    const saved=sheetEndpoint?await saveLead(sheetEndpoint,sheetData):null;
+    if(saved&&!saved.ok){
+      status.textContent='Request save nahi hui. Please call +91 98710 31423.';
+      status.classList.add('show','error');
+      console.error('Lead endpoint error:',saved.message);
+      return;
     }
+    status.classList.add('show');
+    status.textContent=whatsappWindow
+      ?'Lead Google Sheet mein save ho gayi. WhatsApp opening…'
+      :'Lead save ho gayi. WhatsApp par confirm karein.';
+    if(!whatsappWindow)status.innerHTML+=` <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">WhatsApp →</a>`;
+    projectForm.reset();
+    setTimeout(closeProjectModal,650);
+  }catch(error){
+    status.textContent='Request save nahi hui. Please call +91 98710 31423.';
+    status.classList.add('show','error');
+  }finally{
+    submitButton.disabled=false;
+    submitButton.innerHTML=originalLabel;
   }
+});
 
-  function update() {
-    updateCardWidths();
+document.querySelectorAll('[data-flow-process]').forEach(flowProcess=>{
+  const flowProcessObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>flowProcess.classList.toggle('is-active',entry.isIntersecting));
+  },{threshold:.32});
+  flowProcessObserver.observe(flowProcess);
+});
 
-    const gap = gapSize();
-    const cardWidth = cards[0] ? cards[0].getBoundingClientRect().width : 0;
-    currentIndex = Math.max(0, Math.min(currentIndex, maxIndex()));
+/* ---------- contact page form (contact.html) ----------
+   Shares saveLead() and openWhatsapp() with the forms above: post urlencoded so
+   Apps Script fills e.parameter, and open WhatsApp inside the click gesture. */
+const contactForm=document.getElementById('contactForm');
+if(contactForm){
+  const contactStatus=contactForm.querySelector('.ct-status');
+  const contactButton=contactForm.querySelector('button[type="submit"]');
 
-    track.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+  const markInvalid=(field,invalid)=>field.setAttribute('aria-invalid',invalid?'true':'false');
 
-    Array.from(dotsWrap.children).forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentIndex);
+  contactForm.querySelectorAll('input,select,textarea').forEach(field=>{
+    ['input','change'].forEach(evt=>field.addEventListener(evt,()=>markInvalid(field,false)));
+  });
+
+  const showContactStatus=(html,isError)=>{
+    contactStatus.className='ct-status show'+(isError?' error':'');
+    contactStatus.innerHTML=html;
+  };
+
+  contactForm.addEventListener('submit',async event=>{
+    event.preventDefault();
+
+    let firstBad=null;
+    contactForm.querySelectorAll('input[required],select[required],textarea[required]').forEach(field=>{
+      const bad=!field.checkValidity();
+      markInvalid(field,bad);
+      if(bad&&!firstBad)firstBad=field;
     });
-  }
+    if(firstBad){
+      showContactStatus('Please fill the highlighted fields.',true);
+      firstBad.focus();
+      return;
+    }
 
-  function rebuild() {
-    currentIndex = Math.min(currentIndex, maxIndex());
-    renderDots();
-    update();
-  }
+    const data=new FormData(contactForm);
+    const params=new URLSearchParams();
+    data.forEach((value,key)=>params.append(key,value));
+    params.append('website','');
+    params.append('source','Contact Page — Digital India Grow');
+    params.append('page_url',location.href);
+    params.append('timestamp',new Date().toISOString());
 
-  function startAutoplay() {
-    clearInterval(autoplay);
-    autoplay = setInterval(() => {
-      currentIndex = currentIndex >= maxIndex() ? 0 : currentIndex + 1;
-      update();
-    }, 3000);
-  }
+    const whatsappUrl=`https://wa.me/${contactForm.dataset.whatsapp}?text=${encodeURIComponent([
+      'New Contact Page Enquiry',
+      `Name: ${data.get('name')}`,
+      `Phone: ${data.get('phone')}`,
+      `Email: ${data.get('email')}`,
+      `Service: ${data.get('requirement')}`,
+      `Message: ${data.get('message')}`
+    ].join('\n'))}`;
+    const whatsappWindow=openWhatsapp(whatsappUrl);
 
-  prev.addEventListener('click', () => {
-    currentIndex = currentIndex <= 0 ? maxIndex() : currentIndex - 1;
-    update();
-  });
+    contactButton.disabled=true;
+    const originalLabel=contactButton.innerHTML;
+    contactButton.textContent='Sending...';
 
-  next.addEventListener('click', () => {
-    currentIndex = currentIndex >= maxIndex() ? 0 : currentIndex + 1;
-    update();
-  });
-
-  window.addEventListener('resize', rebuild);
-
-  rebuild();
-  startAutoplay();
-
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      clearInterval(autoplay);
-    } else {
-      startAutoplay();
+    try{
+      const saved=await saveLead(contactForm.dataset.sheetEndpoint.trim(),params);
+      if(!saved.ok){
+        showContactStatus('Message send nahi hui. Please call <a href="tel:+919871031423">+91 9871031423</a>.',true);
+        console.error('Lead endpoint error:',saved.message);
+        return;
+      }
+      showContactStatus(whatsappWindow
+        ?'Thank you! Your message is saved. WhatsApp confirmation is opening…'
+        :`Thank you! Your message is saved. <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">Confirm on WhatsApp →</a>`,false);
+      contactForm.reset();
+    }catch(error){
+      showContactStatus('Message send nahi hui. Please call <a href="tel:+919871031423">+91 9871031423</a>.',true);
+      console.error('Contact form error:',error);
+    }finally{
+      contactButton.disabled=false;
+      contactButton.innerHTML=originalLabel;
     }
   });
 }
-
-document.querySelectorAll('[data-multi-slider]').forEach(initMultiSlider);
-
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  if (question) {
-    question.addEventListener('click', () => {
-      item.classList.toggle('active');
-    });
-  }
-});

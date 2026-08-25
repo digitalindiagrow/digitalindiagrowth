@@ -1,657 +1,444 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital India Grow | Premium Landing Pages & Websites</title>
-  <meta name="description" content="Digital India Grow creates premium landing pages, business websites and ecommerce design with a clean, high-trust and professional presentation from Delhi." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4f18db">
+  <title>Digital India Grow — AI-Powered Digital Growth</title>
+  <meta name="description" content="AI-powered websites, marketing and automation that turn attention into measurable business growth.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="topbar">
-    <div class="container topbar-wrap">
-      <div class="topbar-text">Premium Landing Pages • Business Websites • Professional Portfolio Presentation</div>
-      <div class="topbar-contacts">
-        <a href="tel:9871031423">📞 9871031423</a>
-      </div>
-    </div>
-  </div>
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2Z"/><path d="m19 15 .8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 9-3 3 3 3m8-6 3 3-3 3m-2-9-4 12"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="4"/><path d="M12 3v4M8 12h.01M16 12h.01M9 16h6"/></symbol>
+    <symbol id="i-social" viewBox="0 0 24 24"><path d="M18 8a3 3 0 1 0-3-3 3 3 0 0 0 .4 1.5l-6.2 3.2A3 3 0 0 0 7 9a3 3 0 1 0 2.2 5l6.2 3.2A3 3 0 1 0 16 16l-6.2-3.2a3 3 0 0 0 0-1.6L16 8a3 3 0 0 0 2 .8Z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="m14 10 6-6m-1 0h-5v5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5M11 8v6M8 11h6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h4l2 5-3 2a14 14 0 0 0 5 5l2-3 5 2v4a3 3 0 0 1-3 3A15 15 0 0 1 3 6a3 3 0 0 1 3-3Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V5l8-3 8 3v16M8 7h2m4 0h2M8 11h2m4 0h2M8 15h2m4 0h2M9 21v-3h6v3"/></symbol>
+    <symbol id="i-magnet" viewBox="0 0 24 24"><path d="M5 4v8a7 7 0 0 0 14 0V4M5 8h5M14 8h5"/><path d="M5 4h5v4H5zm9 0h5v4h-5z"/></symbol>
+    <symbol id="i-report" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM15 3v5h4"/><path d="M9 16v-3m3 3v-6m3 6v-2"/><circle cx="18" cy="18" r="3"/><path d="m16.7 18 1 1 1.7-2"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><circle cx="12" cy="9" r="4"/><path d="M5 13v-2a7 7 0 0 1 14 0v2M5 13H3v5h4v-5H5Zm14 0h2v5h-4v-5h2ZM8 21a7 7 0 0 1 8 0"/></symbol>
+    <symbol id="i-engage" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="7" r="2.5"/><path d="M3 19v-2a5 5 0 0 1 10 0v2m1-7a4 4 0 0 1 6 3.5V17"/><path d="M14 20h7m-3-3 3 3-3 3"/></symbol>
+    <symbol id="i-location" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M6 9v11M6 5v.01M10 20V9m0 5a5 5 0 0 1 10 0v6M3 9h6"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h4V3h-4a5 5 0 0 0-5 5v3H5v5h4v5h5v-5h4l1-5h-5V8a1 1 0 0 1 1-1"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M21 12c0 3-.4 5.2-1 6-1 1-4.1 1-8 1s-7 0-8-1c-.6-.8-1-3-1-6s.4-5.2 1-6c1-1 4.1-1 8-1s7 0 8 1c.6.8 1 3 1 6Z"/><path d="m10 9 5 3-5 3Z"/></symbol>
+    <symbol id="i-twitter" viewBox="0 0 24 24"><path d="M21 5.5a8 8 0 0 1-2.3.7A4 4 0 0 0 12 9.8v.9A11.3 11.3 0 0 1 3.8 6.5s-3.6 8 4.5 11.5A12 12 0 0 1 3 19.5c8 4.5 18 0 18-10.2a4 4 0 0 0-.1-.7A8 8 0 0 0 23 6.5a8 8 0 0 1-2 .5Z"/></symbol>
+    <symbol id="i-seo-tech" viewBox="0 0 32 32"><rect x="3.5" y="5" width="25" height="18" rx="3"/><path d="M4 10h24M8 7.5h.01M11 7.5h.01"/><circle cx="22.5" cy="21.5" r="5"/><path d="M22.5 18.8v1.1m0 3.2v1.1m-2.7-2.7h1.1m3.2 0h1.1m-.8-1.9-.8.8m-2.3 2.3-.8.8m3.9 0-.8-.8m-2.3-2.3-.8-.8"/></symbol>
+    <symbol id="i-seo-page" viewBox="0 0 32 32"><path d="M8 3.5h11l5 5V28H8zM19 3.5V9h5"/><path d="M12 14h8M12 18h5M12 22h4"/><circle cx="23" cy="22" r="5"/><path d="m20.8 22 1.5 1.5 3-3"/></symbol>
+    <symbol id="i-seo-keyword" viewBox="0 0 32 32"><circle cx="13" cy="13" r="7.5"/><path d="m18.5 18.5 7 7M8.5 13h9M13 8.5v9"/><path d="m23 6 .8 2.2L26 9l-2.2.8L23 12l-.8-2.2L20 9l2.2-.8z"/></symbol>
+    <symbol id="i-seo-local" viewBox="0 0 32 32"><path d="M25 13c0 7-9 15-9 15S7 20 7 13a9 9 0 1 1 18 0Z"/><circle cx="16" cy="13" r="3.5"/><path d="m16 9.5.8 2.1 2.2.1-1.7 1.4.6 2.2-1.9-1.2-1.9 1.2.6-2.2-1.7-1.4 2.2-.1z"/></symbol>
+    <symbol id="i-seo-content" viewBox="0 0 32 32"><path d="M7 4h13l5 5v19H7zM20 4v6h5M11 14h8M11 18h7M11 22h5"/><path d="m20 25 6-6 2 2-6 6-3 1z"/></symbol>
+    <symbol id="i-seo-link" viewBox="0 0 32 32"><path d="m13.5 19.5-2 2a5.7 5.7 0 0 1-8-8l4-4a5.7 5.7 0 0 1 8 0"/><path d="m18.5 12.5 2-2a5.7 5.7 0 0 1 8 8l-4 4a5.7 5.7 0 0 1-8 0M10.5 21.5l11-11"/></symbol>
+    <symbol id="i-seo-traffic" viewBox="0 0 32 32"><path d="M5 27V16h5v11m3 0V11h5v16m3 0V6h5v21M3 27h26"/><path d="m6 12 6-5 5 3 9-7m-4 0h4v4"/></symbol>
+    <symbol id="i-seo-rank" viewBox="0 0 32 32"><circle cx="13" cy="13" r="8"/><path d="m19 19 7 7M13 8l1.4 2.8 3.1.4-2.3 2.2.6 3.1-2.8-1.5-2.8 1.5.6-3.1-2.3-2.2 3.1-.4z"/></symbol>
+    <symbol id="i-seo-leads" viewBox="0 0 32 32"><circle cx="10" cy="10" r="4"/><circle cx="21" cy="9" r="3"/><path d="M3.5 25v-3a6.5 6.5 0 0 1 13 0v3M18 15a5 5 0 0 1 8 4v2"/><path d="m19 26 7-7m-1 0h-4m4 0v4"/></symbol>
+    <symbol id="i-seo-success" viewBox="0 0 32 32"><path d="M16 3 27 7v8c0 7-4.8 11-11 14C9.8 26 5 22 5 15V7z"/><path d="m10.5 16 3.5 3.5 7.5-8"/><path d="M11 4.8 9 2m12 2.8L23 2"/></symbol>
+    <symbol id="i-design-logo" viewBox="0 0 32 32"><circle cx="8" cy="8" r="2.5"/><circle cx="24" cy="8" r="2.5"/><circle cx="16" cy="24" r="2.5"/><path d="M10.5 8h11M9.5 10l5 11.5M22.5 10l-5 11.5M12 14h8M16 8v6"/></symbol>
+    <symbol id="i-design-brand" viewBox="0 0 32 32"><rect x="4" y="4" width="10" height="10" rx="2"/><rect x="18" y="4" width="10" height="10" rx="2"/><rect x="4" y="18" width="10" height="10" rx="2"/><rect x="18" y="18" width="10" height="10" rx="2"/><path d="m7 11 4-4m10 4 4-4M7 21h4v4m10-4 4 4"/></symbol>
+    <symbol id="i-design-social" viewBox="0 0 32 32"><rect x="5" y="5" width="22" height="22" rx="5"/><circle cx="12" cy="14" r="3"/><path d="M8 23c.7-3 2-4.5 4-4.5s3.3 1.5 4 4.5M19 11h5m-5 4h5m-5 4h3"/></symbol>
+    <symbol id="i-design-collateral" viewBox="0 0 32 32"><path d="M4 6h10v21H4zM18 4h10v23H18z"/><path d="M7 10h4m-4 4h4m10-5h4m-4 4h4m-4 4h4M9 22l2-3-4-2z"/></symbol>
+    <symbol id="i-design-web" viewBox="0 0 32 32"><rect x="3" y="5" width="26" height="19" rx="3"/><path d="M3 10h26M8 7.5h.01M11 7.5h.01M13 28h6M16 24v4"/><path d="m8 20 4-4 3 3 4-5 5 6"/></symbol>
+    <symbol id="i-design-info" viewBox="0 0 32 32"><path d="M5 27V16h5v11m3 0V10h5v17m3 0V5h6v22M3 27h27"/><path d="m6 12 7-6 5 3 8-7m-4 0h4v4"/></symbol>
+    <symbol id="i-process-understand" viewBox="0 0 32 32"><path d="M4 6h18a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-8l-6 5v-5H4a4 4 0 0 1-4-4v-8a4 4 0 0 1 4-4Z"/><path d="M7 14h.01M13 14h.01M19 14h.01"/></symbol>
+    <symbol id="i-process-research" viewBox="0 0 32 32"><circle cx="13" cy="13" r="8"/><path d="m19 19 8 8M9 14l3-3 3 2 3-4"/></symbol>
+    <symbol id="i-process-create" viewBox="0 0 32 32"><path d="m6 25 2-7L22 4l6 6-14 14zM8 18l6 6M20 6l6 6M5 28h22"/></symbol>
+    <symbol id="i-process-review" viewBox="0 0 32 32"><path d="M7 12V6h18v20H7v-6M3 16h13m-4-4 4 4-4 4"/><path d="m18 20 2 2 4-5"/></symbol>
+    <symbol id="i-process-deliver" viewBox="0 0 32 32"><path d="M29 3 3 14l10 5 5 10zM13 19 29 3M18 29l-1-8"/></symbol>
+    <symbol id="i-ad-meta" viewBox="0 0 32 32"><path d="M4 21c3-10 5-14 9-14 5 0 7 14 11 14 2.5 0 4-3 4-6 0-4-2-8-5-8-4 0-7 14-12 14-3 0-5-3-5-6 0-4 2-8 5-8"/></symbol>
+    <symbol id="i-ad-google" viewBox="0 0 32 32"><path d="M14 4 4 23a3 3 0 0 0 5 3L19 8a3 3 0 0 0-5-4Z"/><path d="m18 7 10 17a3 3 0 0 1-5 3L13 10"/><circle cx="7" cy="25" r="3"/></symbol>
+    <symbol id="i-ad-video" viewBox="0 0 32 32"><rect x="3" y="7" width="26" height="18" rx="6"/><path d="m13 12 8 4-8 4z"/></symbol>
+    <symbol id="i-ad-linkedin" viewBox="0 0 32 32"><rect x="4" y="4" width="24" height="24" rx="5"/><path d="M10 14v9m0-13v.01M15 23v-9m0 4a5 5 0 0 1 10 0v5"/></symbol>
+    <symbol id="i-ad-commerce" viewBox="0 0 32 32"><path d="M3 5h4l3 15h14l4-10H9M11 15h14"/><circle cx="13" cy="26" r="2"/><circle cx="23" cy="26" r="2"/><path d="M16 8h7m-3-3 3 3-3 3"/></symbol>
+    <symbol id="i-ad-creative" viewBox="0 0 32 32"><path d="M4 13v7h5l10 5V8L9 13zM9 20l2 7h5l-3-6"/><path d="M23 11l4-3m-4 8h6m-6 5 4 3"/></symbol>
+    <symbol id="i-ad-launch" viewBox="0 0 32 32"><path d="M4 28V17h5v11m3 0V12h5v16m3 0V7h5v21M2 28h28"/><path d="m6 13 7-6 5 3 9-7m-4 0h4v4"/></symbol>
+    <symbol id="i-ad-report" viewBox="0 0 32 32"><path d="M9 5h14a3 3 0 0 1 3 3v20H6V8a3 3 0 0 1 3-3Z"/><path d="M12 5V3h8v2M11 13h10m-10 5h4m-4 5h3"/><path d="m18 23 3-3 3 2"/></symbol>
+  </svg>
 
-  <header class="site-header" id="home">
+  <header class="header" id="top">
     <div class="container nav-wrap">
-      <a href="#home" class="brand" aria-label="Digital India Grow Home">
-        <span class="brand-logo-wrap">
-          <img src="assets/digital-india-grow-logo.png" alt="Digital India Grow logo" class="brand-logo" />
-        </span>
-      </a>
-
-      <nav class="nav" id="navMenu">
-        <a href="#services">Services</a>
-        <a href="#about-value">About Us</a>
-        <a href="#landing-pages">Landing Pages</a>
-        <a href="#lp-solutions">LP Features</a>
-        <a href="#websites">Websites</a>
-        <a href="#smo">SMO</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
+      <a class="brand" href="#top" aria-label="Digital India Grow home"><img src="assets/digital-india-grow-footer-logo-cropped.png" alt="Digital India Grow — Grow Digitally, Lead Globally"></a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#services">Services</a><a href="#why">About Us</a><a href="#why">Why Us</a><a href="#testimonials">Results</a><a href="#process">Resources</a><a href="contact.html">Contact Us</a>
       </nav>
-
-      <a href="#contact" class="nav-cta">Start Project</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">☰</button>
+      <a class="btn btn-sm nav-cta" href="#contact">Get Free Consultation <svg><use href="#i-arrow"/></svg></a>
     </div>
   </header>
 
   <main>
-    <section class="hero section-pad">
+    <section class="hero">
+      <div class="aurora a1"></div><div class="aurora a2"></div>
+      <div class="dot-grid"></div>
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <span class="badge">Professional Digital Agency Style</span>
-          <h1>High-converting pages and websites for modern business growth.</h1>
-          <p>Digital India Grow builds premium landing pages, corporate websites and ecommerce-focused digital experiences that make your business look trustworthy, polished and ready to scale.</p>
-
-          <div class="hero-actions">
-            <a href="#landing-pages" class="btn btn-primary">View Portfolio</a>
-            <a href="#contact" class="btn btn-light">Get Free Quote</a>
+          <div class="eyebrow"><svg><use href="#i-spark"/></svg> AI + DIGITAL MARKETING EXPERTS</div>
+          <h1>Scale Your Business with <span>AI-Powered</span> Websites & <strong>Digital Marketing</strong></h1>
+          <p>We build high-converting websites, intelligent chatbots and data-driven marketing systems that attract, engage and convert — consistently.</p>
+          <div class="trust-row">
+            <div><span class="mini-icon"><svg><use href="#i-bot"/></svg></span><b>AI Integrated</b><small>Automation</small></div>
+            <div><span class="mini-icon"><svg><use href="#i-target"/></svg></span><b>Lead Focused</b><small>Campaigns</small></div>
+            <div><span class="mini-icon"><svg><use href="#i-chart"/></svg></span><b>ROI Driven</b><small>Growth</small></div>
           </div>
-
-          <div class="hero-points">
-            <div><strong>Premium Design</strong><span>Professional first impression</span></div>
-            <div><strong>Lead Focused</strong><span>Clear CTA and enquiry flow</span></div>
-            <div><strong>Responsive Build</strong><span>Mobile to desktop ready</span></div>
-          </div>
+          <div class="hero-actions"><a class="btn" href="#contact">Get Free Strategy Call <svg><use href="#i-arrow"/></svg></a><a class="play-link" href="#process"><span>▶</span> See How It Works</a></div>
         </div>
 
-        <div class="hero-visual reveal">
-          <div class="hero-photo-card">
-            <img src="assets/hero-human.png" alt="Professional business workspace human image" />
-          </div>
-          <div class="floating-stat stat-one">
-            <strong>Premium UI</strong>
-            <span>Modern design system</span>
-          </div>
-          <div class="floating-stat stat-two">
-            <strong>Website + LP</strong>
-            <span>Complete presentation flow</span>
-          </div>
-          <div class="floating-chip chip-one">Landing Pages</div>
-          <div class="floating-chip chip-two">Website Design</div>
-          <div class="floating-chip chip-three">Ecommerce Ready</div>
+        <div class="hero-art reveal delay-1">
+          <div class="orbit o1"></div><div class="orbit o2"></div>
+          <img src="assets/ai-growth-hero.png" alt="AI assistant, laptop analytics dashboard and chatbot mobile app">
+          <div class="growth-pill float-card"><span>Growth Overview</span><b>+145%</b><i></i></div>
+          <div class="secure-pill float-card"><svg><use href="#i-check"/></svg> Smart. Secure. Scalable.</div>
         </div>
+
+        <aside class="lead-card reveal delay-2" id="contact">
+          <div class="card-badge"><svg><use href="#i-spark"/></svg></div>
+          <h2>Book Your <span>FREE</span><br>Consultation</h2>
+          <p>Tell us about your business and get a custom growth roadmap.</p>
+          <form id="leadForm" data-sheet-endpoint="https://script.google.com/macros/s/AKfycbwdTaTsA2IEbV0asEQfoBZHz1leX9256AcyLIcJa7Fn-6uc5tAkZMedIKG_sQxgUSdxtg/exec" data-whatsapp="919871031423">
+            <label><svg><use href="#i-user"/></svg><input required name="name" autocomplete="name" placeholder="Your Name" aria-label="Your Name"></label>
+            <label><svg><use href="#i-phone"/></svg><input required name="phone" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9+\(\) \-]{10,18}" placeholder="Phone Number" aria-label="Phone Number"></label>
+            <label><svg><use href="#i-mail"/></svg><input required name="email" type="email" autocomplete="email" placeholder="Business Email" aria-label="Business Email"></label>
+            <label><svg><use href="#i-building"/></svg><input name="website" type="url" inputmode="url" autocomplete="url" placeholder="Website (Optional)" aria-label="Website Optional"></label>
+            <label class="select-field"><svg><use href="#i-spark"/></svg><select required name="requirement" aria-label="What are you looking for?"><option value="" selected disabled>What are you looking for?</option><option>Premium Website Development</option><option>AI Website Chatbot</option><option>SEO &amp; Organic Growth</option><option>Google &amp; Meta Ads</option><option>Complete Digital Marketing</option></select></label>
+            <button class="btn form-btn" type="submit">Get Free Consultation <svg><use href="#i-arrow"/></svg></button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+          <small class="privacy">◆ 100% Privacy Guaranteed</small>
+        </aside>
       </div>
     </section>
 
-    <section class="strip">
-      <div class="container strip-grid reveal">
-        <div><span>01</span><strong>Better First Impression</strong></div>
-        <div><span>02</span><strong>Professional Content Flow</strong></div>
-        <div><span>03</span><strong>2 Premium Cards Per Slide</strong></div>
-        <div><span>04</span><strong>Premium Section Styling</strong></div>
-      </div>
-    </section>
-
-    <section class="section-pad muted about-value-section" id="about-value">
+    <section class="section services" id="services">
       <div class="container">
-        <div class="section-head reveal narrow">
-          <span class="eyebrow">What Makes Us Different</span>
-          <h2>More than design — we create a complete presentation flow</h2>
-          <p>We make your website look premium, trustworthy and conversion-ready with clear content structure and clean visual design.</p>
-        </div>
-
-        <div class="about-value-grid">
-          <article class="about-value-card reveal">
-            <div class="icon-box">🧭</div>
-            <h3>Clear Strategy</h3>
-            <p>We first understand your service, target audience and conversion goal before planning the page structure.</p>
-          </article>
-
-          <article class="about-value-card reveal">
-            <div class="icon-box">🎨</div>
-            <h3>Premium Design System</h3>
-            <p>We use consistent colors, spacing, typography and cards so the complete website looks professional.</p>
-          </article>
-
-          <article class="about-value-card reveal">
-            <div class="icon-box">📈</div>
-            <h3>Conversion Focus</h3>
-            <p>Every section guides the visitor from attention to trust, clarity and final enquiry action.</p>
-          </article>
-
-          <article class="about-value-card reveal">
-            <div class="icon-box">🤝</div>
-            <h3>Client-ready Output</h3>
-            <p>The final page is clean, responsive and easy to present to clients, teams or prospects.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-pad" id="services">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Services</span>
-          <h2>Designed to present your business in a smarter and more premium way</h2>
-          <p>Each section is built for a cleaner client-facing look, with stronger hierarchy, premium boxes and more polished visuals.</p>
-        </div>
-
+        <div class="section-head reveal"><span><svg><use href="#i-code"/></svg> OUR SERVICES</span><h2>Complete Digital Solutions<br>to <em>Grow Your Business</em></h2><p>From powerful websites to AI automation and data-driven marketing,<br>we deliver end-to-end solutions that drive real growth.</p></div>
         <div class="service-grid">
-          <article class="service-card reveal">
-            <div class="icon-box">🌐</div>
-            <h3>Landing Page Design</h3>
-            <p>Lead generation pages for ads, consultations, service campaigns and focused business offers.</p>
-            <ul>
-              <li>Premium hero section</li>
-              <li>CTA-driven conversion flow</li>
-              <li>High-trust content blocks</li>
-            </ul>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="icon-box">💼</div>
-            <h3>Business Website Design</h3>
-            <p>Professional websites that showcase services, credibility, work portfolio and your complete brand presence.</p>
-            <ul>
-              <li>Corporate homepage layout</li>
-              <li>Portfolio and service pages</li>
-              <li>Modern responsive design</li>
-            </ul>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="icon-box">🛒</div>
-            <h3>Ecommerce UI Support</h3>
-            <p>Useful for product presentation, sales-focused sections and visually strong digital storefronts.</p>
-            <ul>
-              <li>Product presentation blocks</li>
-              <li>Clean shopping experience</li>
-              <li>Meta-friendly visuals</li>
-            </ul>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="icon-box">📣</div>
-            <h3>Social Media Optimization (SMO)</h3>
-            <p>Premium social media management designed to strengthen brand trust, consistency and audience engagement.</p>
-            <ul>
-              <li>Instagram, Facebook & LinkedIn optimization</li>
-              <li>Content planning & premium creatives</li>
-              <li>Profile growth & engagement strategy</li>
-            </ul>
-          </article>
+          <article class="service-card reveal"><div class="service-icon purple"><svg><use href="#i-code"/></svg></div><span class="service-number">01</span><div class="service-visual"><img src="assets/service-website-v2.png" alt="Premium website development on laptop and mobile"></div><h3>Website<br>Development</h3><ul><li>Modern &amp; Responsive Design</li><li>SEO Friendly Websites</li><li>Fast &amp; Secure Performance</li><li>Built to Convert Visitors</li></ul><a href="#contact" aria-label="Discuss website development"><svg><use href="#i-arrow"/></svg></a></article>
+          <article class="service-card reveal delay-1"><div class="service-icon purple"><svg><use href="#i-bot"/></svg></div><span class="service-number">02</span><div class="service-visual"><img src="assets/service-ai-chatbot-v2.png" alt="AI chatbot robot with smart chat panels"></div><h3>AI Integrated<br>Website Chatbot</h3><ul><li>Smart AI Chat Integration</li><li>24/7 Customer Support</li><li>Lead Capture &amp; Qualification</li><li>Better Engagement &amp; Conversions</li></ul><a href="#contact" aria-label="Discuss AI chatbot"><svg><use href="#i-arrow"/></svg></a></article>
+          <article class="service-card reveal delay-2"><div class="service-icon purple"><svg><use href="#i-social"/></svg></div><span class="service-number">03</span><div class="service-visual"><img src="assets/service-social-v2.png" alt="Social media marketing phone and megaphone"></div><h3>Social Media<br>Handling</h3><ul><li>Content Strategy &amp; Planning</li><li>Creative Posts &amp; Reels</li><li>Community Management</li><li>Brand Growth &amp; Engagement</li></ul><a href="#contact" aria-label="Discuss social media handling"><svg><use href="#i-arrow"/></svg></a></article>
+          <article class="service-card service-card-orange reveal delay-3"><div class="service-icon orange"><svg><use href="#i-target"/></svg></div><span class="service-number">04</span><div class="service-visual"><img src="assets/service-performance-v2.png" alt="Performance marketing target and analytics"></div><h3>Performance<br>Marketing</h3><ul><li>Google Ads &amp; Meta Ads</li><li>Lead Generation</li><li>Retargeting Campaigns</li><li>Conversion Optimization</li></ul><a href="#contact" aria-label="Discuss performance marketing"><svg><use href="#i-arrow"/></svg></a></article>
+          <article class="service-card reveal delay-4"><div class="service-icon purple"><svg><use href="#i-search"/></svg></div><span class="service-number">05</span><div class="service-visual"><img src="assets/service-seo-v2.png" alt="SEO letters, magnifying glass and growth arrow"></div><h3>SEO</h3><ul><li>On-Page &amp; Off-Page SEO</li><li>Technical SEO Audit</li><li>Keyword Research</li><li>Rank Higher, Get Found</li></ul><a href="#contact" aria-label="Discuss SEO"><svg><use href="#i-arrow"/></svg></a></article>
         </div>
       </div>
     </section>
 
-    <section class="section-pad muted">
+    <section class="portfolio-section section" id="landing-showcase">
       <div class="container">
-        <div class="section-head reveal narrow">
-          <span class="eyebrow">Premium Highlights</span>
-          <h2>Professional icon-box sections to make the website look richer</h2>
-        </div>
-
-        <div class="premium-box-grid">
-          <article class="premium-box reveal">
-            <div class="icon-box">⚡</div>
-            <h3>Fast & Modern</h3>
-            <p>Streamlined structure with premium layout blocks and elegant spacing.</p>
-          </article>
-          <article class="premium-box reveal">
-            <div class="icon-box">🎯</div>
-            <h3>Goal Driven</h3>
-            <p>Built to attract enquiries, improve trust and guide visitors to the next step.</p>
-          </article>
-          <article class="premium-box reveal">
-            <div class="icon-box">📱</div>
-            <h3>Responsive</h3>
-            <p>Optimized for desktop, tablet and mobile so it always looks clean.</p>
-          </article>
-          <article class="premium-box reveal">
-            <div class="icon-box">✨</div>
-            <h3>Premium Look</h3>
-            <p>Agency-style visual treatment with smooth cards, gradients and polished UI.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-pad" id="landing-pages">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Landing Page Portfolio</span>
-          <h2>High Conversion Landing Page </h2>
-          <p>Convert website traffic into valuable leads with a professionally designed landing page focused on engagement, trust, and action.</p>
-        </div>
-
-        <div class="multi-slider landing-showcase reveal" data-multi-slider data-desktop="3" data-tablet="2" data-mobile="1">
-          <div class="slider-head slider-head-modern">
-            <div>
-              <span class="slider-kicker">Featured Collection</span>
-              <strong>Landing Page Showcase</strong>
-              <p></p>
-            </div>
-            <div class="slider-controls">
-              <button class="slider-btn prev" aria-label="Previous">‹</button>
-              <button class="slider-btn next" aria-label="Next">›</button>
-            </div>
+        <div class="portfolio-heading reveal">
+          <div>
+            <span class="portfolio-eyebrow"><svg><use href="#i-spark"/></svg> FEATURED COLLECTION</span>
+            <h2>Landing Page <em>Showcase</em></h2>
+            <p>Conversion-focused landing pages crafted to turn attention into qualified enquiries.</p>
           </div>
+          <div class="portfolio-controls" aria-label="Landing page showcase controls">
+            <button class="portfolio-arrow portfolio-prev" type="button" aria-label="Previous landing page">&#8592;</button>
+            <button class="portfolio-arrow portfolio-next" type="button" aria-label="Next landing page">&#8594;</button>
+          </div>
+        </div>
 
-          <div class="slider-viewport">
-            <div class="multi-track">
-              <article class="portfolio-show-card website-card landing-like-website">
-                <div class="card-preview">
-                  <span class="card-floating-tag">Business Growth</span>
-                  <img src="assets/bada-business.png" alt="Bada Business landing page" />
-                </div>
-                <div class="card-content">
-                  <div class="card-topline"><span class="card-kind website-kind">Landing Page</span><span class="card-index">01</span></div>
-                  <h3>Bada Business</h3>
-                  <p>Bold business growth landing page with CTA-first messaging, speaker branding and conversion-driven layout.</p>
-                  <div class="card-features"><span>Lead Funnel</span><span>CTA Focused</span><span>Mobile Ready</span></div>
-                  <div class="card-actions">
-                    <a class="card-btn primary" href="https://lfpbadabusiness.com/" target="_blank" rel="noopener">View Live</a>
-                    <a class="card-btn ghost" href="#contact">Need Similar Landing</a>
-                  </div>
-                </div>
+        <div class="portfolio-slider reveal" data-portfolio-slider data-desktop="3" data-tablet="2" data-mobile="1">
+          <div class="portfolio-viewport">
+            <div class="portfolio-track">
+              <article class="portfolio-card">
+                <a class="portfolio-preview" href="https://lfpbadabusiness.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Bada Business landing page">
+                  <span class="browser-bar"><i></i><i></i><i></i><b>lfpbadabusiness.com</b></span>
+                  <span class="website-shot"><img src="assets/bada-business.png" alt="Bada Business landing page preview"></span>
+                  <span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span>
+                </a>
+                <div class="portfolio-body"><div class="portfolio-meta"><span>Business Growth</span><b>01</b></div><h3>Bada Business</h3><p>Bold business growth landing page with CTA-first messaging, speaker branding and a conversion-driven layout.</p><ul><li>Lead Funnel</li><li>CTA Focused</li><li>Mobile Ready</li></ul><a class="portfolio-link" href="https://lfpbadabusiness.com/" target="_blank" rel="noopener noreferrer">Explore Website <svg><use href="#i-arrow"/></svg></a></div>
               </article>
 
-              <article class="portfolio-show-card website-card landing-like-website">
-                <div class="card-preview">
-                  <span class="card-floating-tag">Consultation Flow</span>
-                  <img src="assets/cosmetics-lp.png" alt="Cosmetics Regulatory landing page" />
-                </div>
-                <div class="card-content">
-                  <div class="card-topline"><span class="card-kind website-kind">Landing Page</span><span class="card-index">02</span></div>
-                  <h3>Cosmetics Regulatory</h3>
-                  <p>Service-led landing page for regulatory enquiries with consultation form, trust bullets and clear offer positioning.</p>
-                  <div class="card-features"><span>Lead Form</span><span>Trust UI</span><span>Fast Inquiry</span></div>
-                  <div class="card-actions">
-                    <a class="card-btn primary" href="https://cosmeticsregulatory.com/cos-1-cos2-cos-4a/" target="_blank" rel="noopener">View Live</a>
-                    <a class="card-btn ghost" href="#contact">Need Similar Landing</a>
-                  </div>
-                </div>
+              <article class="portfolio-card">
+                <a class="portfolio-preview" href="https://cosmeticsregulatory.com/cos-1-cos2-cos-4a/" target="_blank" rel="noopener noreferrer" aria-label="Open Cosmetics Regulatory landing page">
+                  <span class="browser-bar"><i></i><i></i><i></i><b>cosmeticsregulatory.com</b></span>
+                  <span class="website-shot"><img src="assets/cosmetics-lp.png" alt="Cosmetics Regulatory consultation landing page preview"></span>
+                  <span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span>
+                </a>
+                <div class="portfolio-body"><div class="portfolio-meta"><span>Consultation Flow</span><b>02</b></div><h3>Cosmetics Regulatory</h3><p>Service-led landing page for regulatory enquiries with a consultation form, trust bullets and clear positioning.</p><ul><li>Lead Form</li><li>Trust UI</li><li>Fast Inquiry</li></ul><a class="portfolio-link" href="https://cosmeticsregulatory.com/cos-1-cos2-cos-4a/" target="_blank" rel="noopener noreferrer">Explore Website <svg><use href="#i-arrow"/></svg></a></div>
               </article>
 
-              <article class="portfolio-show-card website-card landing-like-website">
-                <div class="card-preview">
-                  <span class="card-floating-tag">Compliance Support</span>
-                  <img src="assets/bis-lp.png" alt="BIS certification landing page" />
-                </div>
-                <div class="card-content">
-                  <div class="card-topline"><span class="card-kind website-kind">Landing Page</span><span class="card-index">03</span></div>
-                  <h3>BIS Certification</h3>
-                  <p>Clean compliance landing page with bright visual contrast, fast-trust messaging and enquiry-focused content blocks.</p>
-                  <div class="card-features"><span>Fast Form</span><span>Consultation CTA</span><span>Support Highlights</span></div>
-                  <div class="card-actions">
-                    <a class="card-btn primary" href="https://bisregistrationcertificate.com/isi-fmcs-crs-hallmark" target="_blank" rel="noopener">View Live</a>
-                    <a class="card-btn ghost" href="#contact">Need Similar Landing</a>
-                  </div>
-                </div>
+              <article class="portfolio-card">
+                <a class="portfolio-preview" href="https://bisregistrationcertificate.com/isi-fmcs-crs-hallmark" target="_blank" rel="noopener noreferrer" aria-label="Open BIS Certification landing page">
+                  <span class="browser-bar"><i></i><i></i><i></i><b>bisregistrationcertificate.com</b></span>
+                  <span class="website-shot"><img src="assets/bis-lp.png" alt="BIS Certification compliance landing page preview"></span>
+                  <span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span>
+                </a>
+                <div class="portfolio-body"><div class="portfolio-meta"><span>Compliance Support</span><b>03</b></div><h3>BIS Certification</h3><p>Clean compliance landing page with bright contrast, fast-trust messaging and enquiry-focused content blocks.</p><ul><li>Fast Form</li><li>Consultation CTA</li><li>Support Highlights</li></ul><a class="portfolio-link" href="https://bisregistrationcertificate.com/isi-fmcs-crs-hallmark" target="_blank" rel="noopener noreferrer">Explore Website <svg><use href="#i-arrow"/></svg></a></div>
               </article>
+              <article class="portfolio-card"><a class="portfolio-preview" href="https://businessstartupprogram.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Business Startup Program landing page"><span class="browser-bar"><i></i><i></i><i></i><b>businessstartupprogram.com</b></span><span class="website-shot"><img src="assets/business-startup-program.png" alt="World Pocket Pay business startup landing page preview"></span><span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span></a><div class="portfolio-body"><div class="portfolio-meta"><span>Web3 Platform</span><b>04</b></div><h3>Business Startup Program</h3><p>Premium decentralized payment landing page with wallet-focused CTAs, rich Web3 visuals and a strong hero experience.</p><ul><li>Web3 UI</li><li>Animated Hero</li><li>Account CTA</li></ul><a class="portfolio-link" href="https://businessstartupprogram.com/" target="_blank" rel="noopener noreferrer">Explore Website <svg><use href="#i-arrow"/></svg></a></div></article>
+              <article class="portfolio-card"><a class="portfolio-preview" href="https://admin.firefunnels.io/u/landing-page-builder/171967/view" target="_blank" rel="noopener noreferrer" aria-label="Open Handcrafted Resin Art landing page"><span class="browser-bar"><i></i><i></i><i></i><b>admin.firefunnels.io</b></span><span class="website-shot"><img src="assets/firefunnels-landing.png" alt="Handcrafted Resin Art landing page preview"></span><span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span></a><div class="portfolio-body"><div class="portfolio-meta"><span>Product Landing Page</span><b>05</b></div><h3>Handcrafted Resin Art</h3><p>Elegant product-led landing page with premium imagery, personalized storytelling and clear customization actions.</p><ul><li>Product Story</li><li>Custom CTA</li><li>Mobile Ready</li></ul><a class="portfolio-link" href="https://admin.firefunnels.io/u/landing-page-builder/171967/view" target="_blank" rel="noopener noreferrer">Explore Website <svg><use href="#i-arrow"/></svg></a></div></article>
+              <article class="portfolio-card"><a class="portfolio-preview" href="https://admin.firefunnels.io/u/landing-page-builder/171564/view" target="_blank" rel="noopener noreferrer" aria-label="Open Decode with Taher landing page"><span class="browser-bar"><i></i><i></i><i></i><b>admin.firefunnels.io</b></span><span class="website-shot"><img src="assets/firefunnels-landing-171564.png" alt="Decode with Taher knowledge creator landing page preview"></span><span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span></a><div class="portfolio-body"><div class="portfolio-meta"><span>Creator Landing Page</span><b>06</b></div><h3>Decode with Taher</h3><p>Bold creator landing page with an editorial dark theme, focused social actions and a memorable personal brand.</p><ul><li>Creator Brand</li><li>Social CTA</li><li>Dark Premium UI</li></ul><a class="portfolio-link" href="https://admin.firefunnels.io/u/landing-page-builder/171564/view" target="_blank" rel="noopener noreferrer">Explore Website <svg><use href="#i-arrow"/></svg></a></div></article>
             </div>
           </div>
-
-          <div class="slider-dots"></div>
+          <div class="portfolio-dots" aria-label="Landing page slides"></div>
         </div>
       </div>
     </section>
 
-
-    <section class="section-pad muted" id="websites">
+    <section class="portfolio-section portfolio-section-alt section" id="website-showcase">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Website Portfolio</span>
-          <h2>Build Your Dream Premium website </h2>
-          <p>A separate portfolio row for websites keeps the presentation clean and much easier for clients to understand.</p>
+        <div class="portfolio-heading reveal">
+          <div>
+            <span class="portfolio-eyebrow"><svg><use href="#i-code"/></svg> BUSINESS WEBSITE COLLECTION</span>
+            <h2>Website <em>Showcase</em></h2>
+            <p>Polished business websites designed for authority, clarity and measurable digital growth.</p>
+          </div>
+          <div class="portfolio-controls" aria-label="Website showcase controls">
+            <button class="portfolio-arrow portfolio-prev" type="button" aria-label="Previous website">&#8592;</button>
+            <button class="portfolio-arrow portfolio-next" type="button" aria-label="Next website">&#8594;</button>
+          </div>
         </div>
 
-        <div class="multi-slider website-showcase reveal" data-multi-slider data-desktop="3" data-tablet="2" data-mobile="1">
-          <div class="slider-head slider-head-modern">
-            <div>
-              <span class="slider-kicker">Business Website Collection</span>
-              <strong>Website Showcase</strong>
-              <p>Premium website </p>
-            </div>
-            <div class="slider-controls">
-              <button class="slider-btn prev" aria-label="Previous">‹</button>
-              <button class="slider-btn next" aria-label="Next">›</button>
-            </div>
-          </div>
-
-          <div class="slider-viewport">
-            <div class="multi-track">
-              <article class="portfolio-show-card website-card">
-                <div class="card-preview">
-                  <span class="card-floating-tag">Corporate Website</span>
-                  <img src="assets/bis-website.png" alt="BIS Registration Certificate website" />
-                </div>
-                <div class="card-content">
-                  <div class="card-topline"><span class="card-kind website-kind">Website</span><span class="card-index">01</span></div>
-                  <h3>BIS Registration</h3>
-                  <p>Corporate compliance website with strong homepage structure, brand authority and trust-oriented call-to-action flow.</p>
-                  <div class="card-features"><span>Corporate UI</span><span>Service Layout</span><span>Trust Blocks</span></div>
-                  <div class="card-actions">
-                    <a class="card-btn primary" href="https://bisregistrationcertificate.com/" target="_blank" rel="noopener">Visit Website</a>
-                    <a class="card-btn ghost" href="#contact">Need Similar Site</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="portfolio-show-card website-card">
-                <div class="card-preview">
-                  <span class="card-floating-tag">Tech Partner Site</span>
-                  <img src="assets/litgro-website.png" alt="LitGro website" />
-                </div>
-                <div class="card-content">
-                  <div class="card-topline"><span class="card-kind website-kind">Website</span><span class="card-index">02</span></div>
-                  <h3>LitGro</h3>
-                  <p>Modern business website with clean service presentation, clear navigation and polished technology brand styling.</p>
-                  <div class="card-features"><span>Modern Layout</span><span>Service Focus</span><span>Clean Branding</span></div>
-                  <div class="card-actions">
-                    <a class="card-btn primary" href="https://litgro.com/" target="_blank" rel="noopener">Visit Website</a>
-                    <a class="card-btn ghost" href="#contact">Need Similar Site</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="portfolio-show-card website-card">
-                <div class="card-preview">
-                  <span class="card-floating-tag">Industry Website</span>
-                  <img src="assets/epr-website.png" alt="EPR Certificate website" />
-                </div>
-                <div class="card-content">
-                  <div class="card-topline"><span class="card-kind website-kind">Website</span><span class="card-index">03</span></div>
-                  <h3>EPR Certificate</h3>
-                  <p>Sector-specific website with a distinct green identity, informative sections and cleaner service communication.</p>
-                  <div class="card-features"><span>Informative Flow</span><span>Brand Theme</span><span>Clean Sections</span></div>
-                  <div class="card-actions">
-                    <a class="card-btn primary" href="https://eprcertificate.com/" target="_blank" rel="noopener">Visit Website</a>
-                    <a class="card-btn ghost" href="#contact">Need Similar Site</a>
-                  </div>
-                </div>
-              </article>
-
-              <article class="portfolio-show-card website-card">
-                <div class="card-preview">
-                  <span class="card-floating-tag">Legal Website</span>
-                  <img src="assets/elt-law.png" alt="ELT Law Partners LLP website" />
-                </div>
-                <div class="card-content">
-                  <div class="card-topline"><span class="card-kind website-kind">Website</span><span class="card-index">04</span></div>
-                  <h3>ELT Law Partners LLP</h3>
-                  <p>Professional legal advisory website with corporate positioning, consultation CTA, clean navigation and trust-focused service presentation.</p>
-                  <div class="card-features"><span>Legal Website</span><span>Consultation CTA</span><span>Corporate UI</span></div>
-                  <div class="card-actions">
-                    <a class="card-btn primary" href="https://eltlawfirm.com/" target="_blank" rel="noopener">Visit Website</a>
-                    <a class="card-btn ghost" href="#contact">Need Similar Site</a>
-                  </div>
-                </div>
-              </article>
-
+        <div class="portfolio-slider reveal" data-portfolio-slider data-desktop="3" data-tablet="2" data-mobile="1">
+          <div class="portfolio-viewport">
+            <div class="portfolio-track">
+              <article class="portfolio-card"><a class="portfolio-preview" href="https://bisregistrationcertificate.com/" target="_blank" rel="noopener noreferrer" aria-label="Open BIS Registration website"><span class="browser-bar"><i></i><i></i><i></i><b>bisregistrationcertificate.com</b></span><span class="website-shot"><img src="assets/bis-website.png" alt="BIS Registration corporate website preview"></span><span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span></a><div class="portfolio-body"><div class="portfolio-meta"><span>Corporate Website</span><b>01</b></div><h3>BIS Registration</h3><p>Corporate compliance website with strong structure, brand authority and a trust-oriented CTA flow.</p><ul><li>Corporate UI</li><li>Service Layout</li><li>Trust Blocks</li></ul><a class="portfolio-link" href="https://bisregistrationcertificate.com/" target="_blank" rel="noopener noreferrer">Explore Website <svg><use href="#i-arrow"/></svg></a></div></article>
+              <article class="portfolio-card"><a class="portfolio-preview" href="https://litgro.com/" target="_blank" rel="noopener noreferrer" aria-label="Open LitGro website"><span class="browser-bar"><i></i><i></i><i></i><b>litgro.com</b></span><span class="website-shot"><img src="assets/litgro-website.png" alt="LitGro technology partner website preview"></span><span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span></a><div class="portfolio-body"><div class="portfolio-meta"><span>Tech Partner Site</span><b>02</b></div><h3>LitGro</h3><p>Modern business website with clean service presentation, clear navigation and polished technology styling.</p><ul><li>Modern Layout</li><li>Service Focus</li><li>Clean Branding</li></ul><a class="portfolio-link" href="https://litgro.com/" target="_blank" rel="noopener noreferrer">Explore Website <svg><use href="#i-arrow"/></svg></a></div></article>
+              <article class="portfolio-card"><a class="portfolio-preview" href="https://eprcertificate.com/" target="_blank" rel="noopener noreferrer" aria-label="Open EPR Certificate website"><span class="browser-bar"><i></i><i></i><i></i><b>eprcertificate.com</b></span><span class="website-shot"><img src="assets/epr-website.png" alt="EPR Certificate industry website preview"></span><span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span></a><div class="portfolio-body"><div class="portfolio-meta"><span>Industry Website</span><b>03</b></div><h3>EPR Certificate</h3><p>Sector-specific website with a distinct green identity, informative sections and cleaner communication.</p><ul><li>Informative Flow</li><li>Brand Theme</li><li>Clean Sections</li></ul><a class="portfolio-link" href="https://eprcertificate.com/" target="_blank" rel="noopener noreferrer">Explore Website <svg><use href="#i-arrow"/></svg></a></div></article>
+              <article class="portfolio-card"><a class="portfolio-preview" href="https://eltlawfirm.com/" target="_blank" rel="noopener noreferrer" aria-label="Open ELT Law Partners website"><span class="browser-bar"><i></i><i></i><i></i><b>eltlawfirm.com</b></span><span class="website-shot"><img src="assets/elt-law.png" alt="ELT Law Partners legal website preview"></span><span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span></a><div class="portfolio-body"><div class="portfolio-meta"><span>Legal Website</span><b>04</b></div><h3>ELT Law Partners LLP</h3><p>Professional legal advisory website with corporate positioning, consultation CTA and trust-focused services.</p><ul><li>Legal Website</li><li>Consultation CTA</li><li>Corporate UI</li></ul><a class="portfolio-link" href="https://eltlawfirm.com/" target="_blank" rel="noopener noreferrer">Explore Website <svg><use href="#i-arrow"/></svg></a></div></article>
+              <article class="portfolio-card"><a class="portfolio-preview" href="https://www.propertyjaankari.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Property Jaankari website"><span class="browser-bar"><i></i><i></i><i></i><b>propertyjaankari.com</b></span><span class="website-shot"><img src="assets/property-jaankari.png" alt="Property Jaankari real estate platform preview"></span><span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span></a><div class="portfolio-body"><div class="portfolio-meta"><span>Real Estate Platform</span><b>05</b></div><h3>Property Jaankari</h3><p>Verified property discovery portal with smart search, builder connections and enquiry-focused listing journeys.</p><ul><li>Smart Search</li><li>Listing Portal</li><li>Lead Enquiries</li></ul><a class="portfolio-link" href="https://www.propertyjaankari.com/" target="_blank" rel="noopener noreferrer">Explore Website <svg><use href="#i-arrow"/></svg></a></div></article>
             </div>
           </div>
-
-          <div class="slider-dots"></div>
+          <div class="portfolio-dots" aria-label="Website slides"></div>
         </div>
       </div>
     </section>
 
-<section class="section-pad muted" id="lp-solutions">
+    <section class="portfolio-section ecommerce-showcase section" id="ecommerce-showcase">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Landing Page Solutions</span>
-          <h2>Different landing page formats for different business goals</h2>
-          <p>Use the right landing page structure depending on whether the client wants leads, sales, consultations, webinar signups or product enquiries.</p>
+        <div class="portfolio-heading reveal">
+          <div><span class="portfolio-eyebrow"><svg><use href="#i-building"/></svg> ONLINE STORE COLLECTION</span><h2>E-Commerce Website <em>Showcase</em></h2><p>Customer-friendly online stores that combine premium product presentation with clear shopping journeys.</p></div>
+          <div class="portfolio-controls" aria-label="E-commerce showcase controls"><button class="portfolio-arrow portfolio-prev" type="button" aria-label="Previous e-commerce website">&#8592;</button><button class="portfolio-arrow portfolio-next" type="button" aria-label="Next e-commerce website">&#8594;</button></div>
         </div>
-
-        <div class="lp-type-grid">
-          <article class="lp-type-card reveal">
-            <div class="icon-box">📞</div>
-            <h3>Lead Generation Landing Page</h3>
-            <p>Best for service businesses that want calls, WhatsApp enquiries and form submissions from paid ads.</p>
-          </article>
-          <article class="lp-type-card reveal">
-            <div class="icon-box">🧑‍💼</div>
-            <h3>Consultation Booking Page</h3>
-            <p>Ideal for consultants, agencies, legal firms and compliance businesses that want scheduled discussions.</p>
-          </article>
-          <article class="lp-type-card reveal">
-            <div class="icon-box">🛒</div>
-            <h3>Product Campaign Page</h3>
-            <p>Useful for ecommerce products, product launches, promotional offers and Meta ad campaigns.</p>
-          </article>
-          <article class="lp-type-card reveal">
-            <div class="icon-box">🎓</div>
-            <h3>Webinar / Event Page</h3>
-            <p>Designed for registrations, program awareness, online events and business training promotions.</p>
-          </article>
+        <div class="portfolio-slider reveal" data-portfolio-slider data-desktop="2" data-tablet="2" data-mobile="1">
+          <div class="portfolio-viewport"><div class="portfolio-track">
+            <article class="portfolio-card"><a class="portfolio-preview" href="https://thedecornmore.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Decor N More online store"><span class="browser-bar"><i></i><i></i><i></i><b>thedecornmore.com</b></span><span class="website-shot"><img src="assets/decor-n-more.png" alt="Decor N More premium home decor online store preview"></span><span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span></a><div class="portfolio-body"><div class="portfolio-meta"><span>Home Decor Store</span><b>01</b></div><h3>Decor N More</h3><p>Soft, editorial e-commerce experience for premium home textiles with visual categories and refined product storytelling.</p><ul><li>Premium Catalog</li><li>Product Search</li><li>Mobile Shopping</li></ul><a class="portfolio-link" href="https://thedecornmore.com/" target="_blank" rel="noopener noreferrer">Explore Store <svg><use href="#i-arrow"/></svg></a></div></article>
+            <article class="portfolio-card"><a class="portfolio-preview" href="https://eltpublication.com/" target="_blank" rel="noopener noreferrer" aria-label="Open ELT Publication online store"><span class="browser-bar"><i></i><i></i><i></i><b>eltpublication.com</b></span><span class="website-shot"><img src="assets/elt-publication.png" alt="ELT Publication medical certification book store preview"></span><span class="preview-live"><svg><use href="#i-arrow"/></svg> View Live</span></a><div class="portfolio-body"><div class="portfolio-meta"><span>Publication Store</span><b>02</b></div><h3>ELT Publication</h3><p>Specialist publication store with product search, account access and a focused catalog for professional resources.</p><ul><li>Book Catalog</li><li>User Accounts</li><li>Secure Checkout</li></ul><a class="portfolio-link" href="https://eltpublication.com/" target="_blank" rel="noopener noreferrer">Explore Store <svg><use href="#i-arrow"/></svg></a></div></article>
+          </div></div>
+          <div class="portfolio-dots" aria-label="E-commerce website slides"></div>
         </div>
+        <div class="showcase-connect reveal"><div><span>HAVE A PROJECT IN MIND?</span><h3>Let’s build your next high-converting website.</h3></div><button class="btn" type="button" data-open-project-modal>Connect Now <svg><use href="#i-arrow"/></svg></button></div>
       </div>
     </section>
 
-    <section class="section-pad" id="conversion-framework">
-      <div class="container framework-wrap">
-        <div class="framework-copy reveal">
-          <span class="eyebrow">Conversion Framework</span>
-          <h2>A landing page should not only look good — it should guide the visitor.</h2>
-          <p>A professional landing page needs a proper flow: attention, trust, offer clarity, proof, benefits and a strong CTA. This section explains the structure clients expect.</p>
-          <a href="#contact" class="btn btn-primary">Plan My Landing Page</a>
-        </div>
-        <div class="framework-steps reveal">
-          <div><span>01</span><strong>Attention</strong><p>Strong headline and relevant hero message.</p></div>
-          <div><span>02</span><strong>Trust</strong><p>Visual proof, service clarity and credibility signals.</p></div>
-          <div><span>03</span><strong>Offer</strong><p>Clear explanation of what the user will get.</p></div>
-          <div><span>04</span><strong>Action</strong><p>WhatsApp, call button and enquiry form placement.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-pad muted" id="included-features">
+    <section class="graphic-design section" id="graphic-design">
       <div class="container">
-        <div class="section-head reveal narrow">
-          <span class="eyebrow">What We Include</span>
-          <h2>Everything needed for a clean and complete landing page</h2>
+        <div class="graphic-design-head section-head reveal">
+          <span><svg><use href="#i-design-logo"/></svg> CREATIVE DESIGN STUDIO</span>
+          <h2>Our <em>Graphic Design</em> Services</h2>
+          <p>Premium visual design that gives your brand a consistent, memorable and conversion-ready presence.</p>
         </div>
-        <div class="included-grid">
-          <article class="included-card reveal"><strong>Hero Banner</strong><p>Professional first section with headline, subtext and CTA buttons.</p></article>
-          <article class="included-card reveal"><strong>Service Benefits</strong><p>Clear benefit blocks that explain why users should contact you.</p></article>
-          <article class="included-card reveal"><strong>Trust Elements</strong><p>Stats, process, highlights, proof blocks and confidence-building sections.</p></article>
-          <article class="included-card reveal"><strong>Lead Form</strong><p>Name, phone, service selection and message fields for enquiry capture.</p></article>
-          <article class="included-card reveal"><strong>WhatsApp CTA</strong><p>Direct WhatsApp button with pre-filled message for faster response.</p></article>
-          <article class="included-card reveal"><strong>Responsive Layout</strong><p>Clean view for mobile, tablet and desktop visitors.</p></article>
+        <div class="graphic-service-grid">
+          <article class="graphic-service-card reveal"><span class="graphic-service-icon"><svg><use href="#i-design-logo"/></svg></span><b>01</b><h3>Logo Design</h3><p>Memorable logos built to represent your brand perfectly.</p><button type="button" data-open-project-modal data-project-type="Graphic Design Services" data-project-reference="Logo Design" aria-label="Discuss logo design"><svg><use href="#i-arrow"/></svg></button></article>
+          <article class="graphic-service-card reveal delay-1"><span class="graphic-service-icon"><svg><use href="#i-design-brand"/></svg></span><b>02</b><h3>Brand Identity</h3><p>A complete visual system that builds a strong presence.</p><button type="button" data-open-project-modal data-project-type="Graphic Design Services" data-project-reference="Brand Identity" aria-label="Discuss brand identity"><svg><use href="#i-arrow"/></svg></button></article>
+          <article class="graphic-service-card reveal delay-2"><span class="graphic-service-icon"><svg><use href="#i-design-social"/></svg></span><b>03</b><h3>Social Media</h3><p>Engaging posts and creatives designed for attention.</p><button type="button" data-open-project-modal data-project-type="Graphic Design Services" data-project-reference="Social Media Creatives" aria-label="Discuss social media design"><svg><use href="#i-arrow"/></svg></button></article>
+          <article class="graphic-service-card reveal delay-3"><span class="graphic-service-icon"><svg><use href="#i-design-collateral"/></svg></span><b>04</b><h3>Marketing Collateral</h3><p>Brochures, flyers and banners that leave an impact.</p><button type="button" data-open-project-modal data-project-type="Graphic Design Services" data-project-reference="Marketing Collateral" aria-label="Discuss marketing collateral"><svg><use href="#i-arrow"/></svg></button></article>
+          <article class="graphic-service-card reveal"><span class="graphic-service-icon"><svg><use href="#i-design-web"/></svg></span><b>05</b><h3>Web Graphics</h3><p>Website banners and visuals that enhance user experience.</p><button type="button" data-open-project-modal data-project-type="Graphic Design Services" data-project-reference="Web Graphics" aria-label="Discuss web graphics"><svg><use href="#i-arrow"/></svg></button></article>
+          <article class="graphic-service-card reveal delay-1"><span class="graphic-service-icon"><svg><use href="#i-design-info"/></svg></span><b>06</b><h3>Infographic Design</h3><p>Complex information transformed into clear visuals.</p><button type="button" data-open-project-modal data-project-type="Graphic Design Services" data-project-reference="Infographic Design" aria-label="Discuss infographic design"><svg><use href="#i-arrow"/></svg></button></article>
+        </div>
+        <div class="design-process reveal" data-flow-process>
+          <div class="design-process-title"><h3>Our <em>Design Process</em></h3><p>From understanding your vision to delivering polished creative files.</p></div>
+          <div class="design-process-grid">
+            <article><b>01</b><span><svg><use href="#i-process-understand"/></svg></span><h4>Understand</h4><p>Your brand, goals and audience.</p></article>
+            <article><b>02</b><span><svg><use href="#i-process-research"/></svg></span><h4>Research</h4><p>Your industry and competitors.</p></article>
+            <article><b>03</b><span><svg><use href="#i-process-create"/></svg></span><h4>Create</h4><p>Unique visual design concepts.</p></article>
+            <article><b>04</b><span><svg><use href="#i-process-review"/></svg></span><h4>Review &amp; Revise</h4><p>We refine it until it feels right.</p></article>
+            <article><b>05</b><span><svg><use href="#i-process-deliver"/></svg></span><h4>Deliver</h4><p>Final files, ready to use.</p></article>
+          </div>
+          <button class="btn design-project-cta" type="button" data-open-project-modal data-project-type="Graphic Design Services" data-project-reference="Graphic Design Services">Start Your Design Project <svg><use href="#i-arrow"/></svg></button>
         </div>
       </div>
     </section>
 
-    <section class="section-pad" id="lp-faq">
+    <section class="ad-services section" id="ad-services">
       <div class="container">
-        <div class="section-head reveal narrow">
-          <span class="eyebrow">Landing Page FAQ</span>
-          <h2>Common client questions answered professionally</h2>
+        <div class="ad-services-head section-head reveal">
+          <span><svg><use href="#i-ad-launch"/></svg> PERFORMANCE ADVERTISING</span>
+          <h2>Our <em>Ad Services</em></h2>
+          <p>Full-funnel advertising campaigns created to reach the right audience, generate qualified leads and improve return on ad spend.</p>
         </div>
-        <div class="faq-grid reveal">
-          <div class="faq-item active">
-            <button class="faq-question">What is the difference between a website and landing page? <span>+</span></button>
-            <p class="faq-answer">A website explains the full business, while a landing page focuses on one goal such as leads, bookings, product enquiries or campaign conversions.</p>
+        <div class="ad-service-grid">
+          <article class="ad-service-card reveal"><span class="ad-service-icon"><img src="assets/ad-meta-glossy.svg" alt="Meta Ads logo"></span><b>01</b><h3>Meta Ads<br><small>Facebook &amp; Instagram</small></h3><ul><li>Campaign Strategy</li><li>Audience Targeting</li><li>Ad Copy &amp; Creatives</li><li>A/B Testing</li><li>Lead Generation Ads</li></ul><button type="button" data-open-project-modal data-project-type="Advertising Services" data-project-reference="Meta Ads" aria-label="Discuss Meta advertising"><svg><use href="#i-arrow"/></svg></button></article>
+          <article class="ad-service-card reveal delay-1"><span class="ad-service-icon"><img src="assets/ad-google-glossy.svg" alt="Google Ads logo"></span><b>02</b><h3>Google Ads<br><small>Search &amp; Display</small></h3><ul><li>Keyword Research</li><li>Search Ads</li><li>Display Ads</li><li>Shopping Ads</li><li>Conversion Tracking</li></ul><button type="button" data-open-project-modal data-project-type="Advertising Services" data-project-reference="Google Ads" aria-label="Discuss Google advertising"><svg><use href="#i-arrow"/></svg></button></article>
+          <article class="ad-service-card reveal delay-2"><span class="ad-service-icon"><img src="assets/ad-youtube-glossy.svg" alt="YouTube Ads logo"></span><b>03</b><h3>YouTube Ads</h3><ul><li>Video Ad Campaigns</li><li>Brand Awareness</li><li>In-Stream Ads</li><li>View &amp; Engagement</li><li>Audience Campaigns</li></ul><button type="button" data-open-project-modal data-project-type="Advertising Services" data-project-reference="YouTube Ads" aria-label="Discuss YouTube advertising"><svg><use href="#i-arrow"/></svg></button></article>
+          <article class="ad-service-card reveal delay-3"><span class="ad-service-icon"><img src="assets/ad-linkedin-glossy.svg" alt="LinkedIn Ads logo"></span><b>04</b><h3>LinkedIn Ads</h3><ul><li>B2B Lead Generation</li><li>Sponsored Content</li><li>Message Ads</li><li>Targeted Outreach</li><li>Decision-Maker Reach</li></ul><button type="button" data-open-project-modal data-project-type="Advertising Services" data-project-reference="LinkedIn Ads" aria-label="Discuss LinkedIn advertising"><svg><use href="#i-arrow"/></svg></button></article>
+          <article class="ad-service-card reveal"><span class="ad-service-icon"><img src="assets/ad-ecommerce-glossy.svg" alt="E-Commerce advertising cart"></span><b>05</b><h3>E-Commerce Ads</h3><ul><li>Product Promotions</li><li>Catalog Ads</li><li>Shopping Feed Setup</li><li>Sales-Focused Ads</li><li>Conversion Tracking</li></ul><button type="button" data-open-project-modal data-project-type="Advertising Services" data-project-reference="E-Commerce Ads" aria-label="Discuss e-commerce advertising"><svg><use href="#i-arrow"/></svg></button></article>
+        </div>
+        <div class="ad-process reveal" data-flow-process>
+          <div class="ad-process-title"><h3>Our Proven <em>Ad Process</em></h3><p>A clear, performance-focused journey from research to measurable growth.</p></div>
+          <div class="ad-process-grid">
+            <article><b>01</b><span><svg><use href="#i-process-research"/></svg></span><h4>Research &amp; Analysis</h4><p>Business, audience, competitors and goals.</p></article>
+            <article><b>02</b><span><svg><use href="#i-target"/></svg></span><h4>Strategy &amp; Planning</h4><p>A custom media strategy for maximum results.</p></article>
+            <article><b>03</b><span><svg><use href="#i-ad-creative"/></svg></span><h4>Ad Creation</h4><p>High-converting ads that grab attention.</p></article>
+            <article><b>04</b><span><svg><use href="#i-ad-launch"/></svg></span><h4>Launch &amp; Optimize</h4><p>Monitor and optimize for the best performance.</p></article>
+            <article><b>05</b><span><svg><use href="#i-ad-report"/></svg></span><h4>Reporting &amp; Growth</h4><p>Detailed reports and scalable next steps.</p></article>
           </div>
-          <div class="faq-item">
-            <button class="faq-question">Can landing pages be used for ads? <span>+</span></button>
-            <p class="faq-answer">Yes, landing pages are best for Google Ads, Meta Ads and WhatsApp campaign traffic because they keep the user focused on one action.</p>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Will the landing page be mobile responsive? <span>+</span></button>
-            <p class="faq-answer">Yes, the layout is built to work properly on mobile, tablet and desktop screens.</p>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Can WhatsApp and form enquiry be added? <span>+</span></button>
-            <p class="faq-answer">Yes, both WhatsApp CTA and enquiry form sections can be added as per the client requirement.</p>
-          </div>
+          <button class="btn ad-project-cta" type="button" data-open-project-modal data-project-type="Advertising Services" data-project-reference="Advertising Services">Plan My Ad Campaign <svg><use href="#i-arrow"/></svg></button>
         </div>
       </div>
     </section>
 
-    
-
-
-    <section class="section-pad smo-premium-section" id="smo">
+    <section class="seo-solutions section" id="seo-solutions">
       <div class="container">
-        <div class="section-head reveal narrow">
-          <span class="eyebrow">Social Media Optimization</span>
-          <h2>Turn your social presence into a premium, trust-building brand experience.</h2>
-          <p>We combine strategic content, polished creatives and profile optimization so your brand looks consistent, credible and active across major social platforms.</p>
+        <div class="seo-solutions-head reveal">
+          <div><span><svg><use href="#i-search"/></svg> COMPLETE SEO SYSTEM</span><h2>Our Complete SEO<br><em>Growth Solutions</em></h2></div>
+          <p>A connected search-growth system that improves visibility, authority and qualified enquiries—not isolated SEO tasks.</p>
         </div>
-        <div class="smo-premium-grid reveal">
-          <div class="smo-visual-card">
-            <div class="smo-visual-glow"></div>
-            <img class="smo-trust-image" src="assets/hero-human.png" alt="Professional social media strategy and brand trust" />
-            <div class="smo-phone-mock">
-              <div class="smo-profile-row"><span class="smo-avatar">DG</span><div><strong>Your Brand</strong><small>Premium Social Presence</small></div></div>
-              <div class="smo-post-mock"><span>STRATEGY</span><strong>Content that builds authority.</strong><p>Professional visuals • Consistent messaging • Better engagement</p></div>
-              <div class="smo-metrics"><div><strong>+Trust</strong><span>Brand Authority</span></div><div><strong>+Reach</strong><span>Visibility</span></div><div><strong>+Leads</strong><span>Growth</span></div></div>
-            </div>
-          </div>
-          <div class="smo-content-card">
-            <span class="smo-mini-label">Premium SMO Management</span>
-            <h3>More than posting — we build a recognizable digital brand.</h3>
-            <p>From profile presentation to monthly content direction, every touchpoint is planned to make your business look established and trustworthy.</p>
-            <div class="smo-feature-list">
-              <div><span>01</span><strong>Profile Optimization</strong><p>Bio, highlights, positioning and professional visual consistency.</p></div>
-              <div><span>02</span><strong>Content Strategy</strong><p>Platform-focused content pillars, calendars and campaign direction.</p></div>
-              <div><span>03</span><strong>Premium Creatives</strong><p>Branded posts, carousels and social assets with a cohesive look.</p></div>
-              <div><span>04</span><strong>Growth & Reporting</strong><p>Engagement-focused execution with performance review and improvement.</p></div>
-            </div>
-            <a href="#contact" class="btn btn-primary">Grow My Social Media</a>
-          </div>
+        <div class="seo-solution-grid">
+          <article class="seo-solution-card reveal"><span class="seo-solution-icon"><svg><use href="#i-seo-tech"/></svg></span><b>01</b><h3>Technical SEO</h3><p>Improve website speed, structure, indexing and crawlability.</p></article>
+          <article class="seo-solution-card reveal delay-1"><span class="seo-solution-icon"><svg><use href="#i-seo-page"/></svg></span><b>02</b><h3>On-Page SEO</h3><p>Optimize content, keywords, headings and user experience.</p></article>
+          <article class="seo-solution-card reveal delay-2"><span class="seo-solution-icon"><svg><use href="#i-seo-keyword"/></svg></span><b>03</b><h3>Keyword Research</h3><p>Find high-converting keywords your customers actively search.</p></article>
+          <article class="seo-solution-card reveal"><span class="seo-solution-icon"><svg><use href="#i-seo-local"/></svg></span><b>04</b><h3>Local SEO</h3><p>Improve visibility on Google Maps and local searches.</p></article>
+          <article class="seo-solution-card reveal delay-1"><span class="seo-solution-icon"><svg><use href="#i-seo-content"/></svg></span><b>05</b><h3>Content Marketing</h3><p>Create SEO-friendly content that attracts organic traffic.</p></article>
+          <article class="seo-solution-card reveal delay-2"><span class="seo-solution-icon"><svg><use href="#i-seo-link"/></svg></span><b>06</b><h3>Link Building</h3><p>Build domain authority with relevant, quality backlinks.</p></article>
+        </div>
+        <div class="seo-performance reveal" aria-label="SEO performance results">
+          <article><span><svg><use href="#i-seo-traffic"/></svg></span><div><small>Organic Traffic Growth</small><strong data-count="250" data-prefix="+" data-suffix="%" aria-label="250 percent increase">+0%</strong><p>Average increase</p></div></article>
+          <article><span><svg><use href="#i-seo-rank"/></svg></span><div><small>Keyword Improvement</small><strong data-count="10" data-prefix="Top " data-suffix="" aria-label="Top 10 rankings">Top 0</strong><p>Across multiple keywords</p></div></article>
+          <article><span><svg><use href="#i-seo-leads"/></svg></span><div><small>Lead Generation</small><strong data-count="3" data-prefix="" data-suffix="X" aria-label="3 times growth">0X</strong><p>In quality leads</p></div></article>
+          <article><span><svg><use href="#i-seo-success"/></svg></span><div><small>Success Rate</small><strong data-count="98" data-prefix="" data-suffix="%" aria-label="98 percent success rate">0%</strong><p>Client satisfaction</p></div></article>
         </div>
       </div>
     </section>
 
-    <section class="section-pad" id="process">
+    <section class="why section" id="why">
       <div class="container">
-        <div class="section-head reveal narrow">
-          <span class="eyebrow">Process</span>
-          <h2>More sections added for a complete professional feel</h2>
-          <p>This section helps the page feel richer and more agency-level, instead of looking short or incomplete.</p>
+        <div class="section-head reveal"><span><svg><use href="#i-spark"/></svg> WHY CHOOSE US</span><h2>We Focus on What Matters — <em>Your Growth</em></h2><p>Our strategies, technology, and support are built around one goal —<br>driving <strong>measurable growth</strong> for your business.</p></div>
+        <div class="value-grid">
+          <article class="value reveal"><b><img src="assets/why-target-v2.png" alt="Lead generation target"></b><div><h3>Lead Generation<br>Strategies</h3><i></i><p>More leads. More<br>opportunities.</p></div></article>
+          <article class="value reveal delay-1"><b><img src="assets/why-magnet-v2.png" alt="Conversion magnet"></b><div><h3>Conversion-Focused<br>Campaigns</h3><i></i><p>We create campaigns<br>that convert.</p></div></article>
+          <article class="value reveal delay-2"><b><img src="assets/why-report-v2.png" alt="Transparent verified report"></b><div><h3>Transparent<br>Reporting</h3><i></i><p>Clear reports with real<br>time insights.</p></div></article>
+          <article class="value reveal delay-1"><b><img src="assets/why-support-v2.png" alt="Dedicated customer support"></b><div><h3>Dedicated Support<br>Team</h3><i></i><p>We're always here<br>to support you.</p></div></article>
+          <article class="value reveal delay-2"><b><img src="assets/why-engagement-v2.png" alt="Customer engagement growth"></b><div><h3>Better Engagement<br>&amp; Conversions</h3><i></i><p>Drive meaningful<br>customer interactions.</p></div></article>
+          <article class="value reveal delay-3"><b><img src="assets/why-roi-v2.png" alt="ROI growth analytics"></b><div><h3>ROI-Driven<br>Approach</h3><i></i><p>Maximum results,<br>better ROI.</p></div></article>
         </div>
+      </div>
+    </section>
 
+    <section class="process section" id="process">
+      <div class="container">
+        <div class="section-head reveal"><span><svg><use href="#i-spark"/></svg> OUR PROCESS</span><h2>Simple Process. <em>Powerful Results.</em></h2><p>A proven 5-step approach to build, grow and scale your business with<br>AI-powered websites and performance marketing.</p></div>
         <div class="process-grid">
-          <article class="process-card reveal">
-            <div class="process-number">01</div>
-            <h3>Understand the Brand</h3>
-            <p>We organize the business idea, service priorities and desired look before building the layout.</p>
-          </article>
-          <article class="process-card reveal">
-            <div class="process-number">02</div>
-            <h3>Design the Structure</h3>
-            <p>Banner, trust sections, services, portfolio and CTA blocks are arranged in a cleaner sequence.</p>
-          </article>
-          <article class="process-card reveal">
-            <div class="process-number">03</div>
-            <h3>Build & Refine</h3>
-            <p>HTML, CSS and JS are developed into a responsive and premium client-ready presentation.</p>
-          </article>
-          <article class="process-card reveal">
-            <div class="process-number">04</div>
-            <h3>Launch Ready</h3>
-            <p>The final output is optimized so you can edit, showcase or deploy it easily.</p>
-          </article>
+          <article class="step reveal"><span class="process-number">01</span><figure class="process-visual"><img src="assets/process-discover-v2.png" alt="Analytics research and planning"></figure><div class="process-copy"><h3>Discover &amp; Plan</h3><p>We understand your business, audience and growth goals.</p></div><a href="#contact" aria-label="Start discovery and planning"><svg><use href="#i-arrow"/></svg></a></article>
+          <article class="step reveal delay-1"><span class="process-number">02</span><figure class="process-visual"><img src="assets/process-strategy-v2.png" alt="Digital campaign strategy"></figure><div class="process-copy"><h3>Strategy &amp; Setup</h3><p>We create a focused roadmap, offer and campaign setup.</p></div><a href="#contact" aria-label="Start strategy and setup"><svg><use href="#i-arrow"/></svg></a></article>
+          <article class="step reveal delay-2"><span class="process-number">03</span><figure class="process-visual"><img src="assets/process-build-v2.png" alt="AI website development and implementation"></figure><div class="process-copy"><h3>Build &amp; Implement</h3><p>We design, develop and integrate your complete growth system.</p></div><a href="#contact" aria-label="Start build and implementation"><svg><use href="#i-arrow"/></svg></a></article>
+          <article class="step reveal delay-3"><span class="process-number">04</span><figure class="process-visual"><img src="assets/process-grow-v2.png" alt="Business optimization and growth"></figure><div class="process-copy"><h3>Optimize &amp; Grow</h3><p>We test the data, improve conversions and scale performance.</p></div><a href="#contact" aria-label="Start optimization and growth"><svg><use href="#i-arrow"/></svg></a></article>
+          <article class="step reveal delay-4"><span class="process-number">05</span><figure class="process-visual"><img src="assets/process-report-v2.png" alt="Transparent performance reporting"></figure><div class="process-copy"><h3>Report &amp; Scale</h3><p>You get clear reporting while we scale what works best.</p></div><a href="#contact" aria-label="Start reporting and scaling"><svg><use href="#i-arrow"/></svg></a></article>
         </div>
       </div>
     </section>
 
-    <section class="section-pad muted">
-      <div class="container cta-panel reveal">
-        <div>
-          <span class="eyebrow">Why Choose Digital India Grow</span>
-          <h2>Clean visuals, premium boxes and stronger website presentation.</h2>
+    <section class="testimonials section" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal"><span>★ &nbsp; CLIENT SUCCESS STORIES</span><h2>Trusted by Businesses <em>Like Yours</em></h2><i class="title-line"></i><p>See how ambitious brands are scaling faster with AI-powered websites,<br>smart marketing and measurable results.</p></div>
+        <div class="testimonial-grid">
+          <article class="quote reveal"><div class="client-head"><span class="client-photo"><img src="assets/client-rahul-v2.png" alt="Rahul Mehta"></span><span class="client-badge"><svg><use href="#i-target"/></svg></span><span class="quote-mark">“</span></div><p>“Digital India Grow transformed our online presence. Leads increased by 300% and our ad-spend efficiency is amazing!”</p><div class="person"><div><b>Rahul Mehta</b><small>Founder, TechNova Solutions</small></div><em aria-label="5 out of 5 stars">★★★★★</em></div></article>
+          <article class="quote reveal delay-1"><div class="client-head"><span class="client-photo"><img src="assets/client-priya-v2.png" alt="Priya Sharma"></span><span class="client-badge"><svg><use href="#i-chart"/></svg></span><span class="quote-mark">“</span></div><p>“Their AI chatbot works like magic! It answers leads instantly and books appointments automatically.”</p><div class="person"><div><b>Priya Sharma</b><small>Marketing Head, Future India</small></div><em aria-label="5 out of 5 stars">★★★★★</em></div></article>
+          <article class="quote reveal delay-2"><div class="client-head"><span class="client-photo"><img src="assets/client-arjun-v2.png" alt="Arjun Verma"></span><span class="client-badge"><svg><use href="#i-report"/></svg></span><span class="quote-mark">“</span></div><p>“From strategy to execution, everything is handled seamlessly. Our campaigns are finally delivering real ROI.”</p><div class="person"><div><b>Arjun Verma</b><small>CEO, Growth Matrix</small></div><em aria-label="5 out of 5 stars">★★★★★</em></div></article>
         </div>
-        <div class="cta-list">
-          <div><span>✓</span> Professional banner styling</div>
-          <div><span>✓</span> Multi-card slider portfolio</div>
-          <div><span>✓</span> More sections for complete flow</div>
-          <div><span>✓</span> Clean HTML, CSS and JS code</div>
+        <div class="client-stats reveal">
+          <div><span><svg><use href="#i-user"/></svg></span><p><strong data-count="500" data-suffix="+" aria-label="500 plus">0+</strong><small>Happy Clients</small></p></div>
+          <div><span><svg><use href="#i-report"/></svg></span><p><strong data-count="800" data-suffix="+" aria-label="800 plus">0+</strong><small>Verified Reviews</small></p></div>
+          <div><span><svg><use href="#i-check"/></svg></span><p><strong data-count="4.9" data-suffix="/5" aria-label="4.9 out of 5">0/5</strong><small>Average Rating</small></p></div>
+          <div><span><svg><use href="#i-spark"/></svg></span><p><strong data-count="98" data-suffix="%" aria-label="98 percent">0%</strong><small>Client Satisfaction</small></p></div>
         </div>
       </div>
     </section>
 
-    <section class="section-pad contact-section" id="contact">
-      <div class="container contact-box reveal">
-        <div>
-          <span class="eyebrow">Contact</span>
-          <h2>Need a premium page like this for your brand?</h2>
-          <p>Share your requirement and Digital India Grow can create a clean, premium landing page or website presentation tailored to your business.</p>
-          <div class="contact-numbers">
-            <a href="tel:9871031423">9871031423</a>
-          </div>
-          <a href="https://wa.me/919871031423?text=Hi%20Digital%20India%20Grow%2C%20I%20want%20a%20premium%20landing%20page%20or%20website%20for%20my%20brand." target="_blank" rel="noopener" class="btn btn-light">Chat on WhatsApp</a>
+    <section class="credentials section" id="credentials">
+      <div class="container">
+        <div class="credential-layout">
+          <div class="credential-intro reveal"><span><svg><use href="#i-check"/></svg> OUR GROWTH STACK</span><h2>Smarter Platforms.<br><em>Stronger Results.</em></h2><p>Your business deserves more than disconnected tools. We combine proven platforms, strategic execution and responsible data practices into one growth system.</p><div class="proof-row"><div><strong>4.9/5</strong><small>Client Rating</small></div><div><strong>500+</strong><small>Growth Projects</small></div><div><strong>98%</strong><small>Satisfaction</small></div></div></div>
+          <div class="platform-panel reveal delay-1"><div class="platform-panel-head"><span>Technology Partners</span><small>Built around your business goals</small></div><div class="platform-grid">
+            <article class="platform-card google"><div class="credential-icon google-mark" aria-hidden="true"><b>G</b></div><div><h3>Google Ads</h3><p>High-intent search and performance campaigns.</p></div><span>01</span></article>
+            <article class="platform-card linkedin"><div class="credential-icon linkedin-mark" aria-hidden="true"><b>in</b></div><div><h3>LinkedIn</h3><p>Focused B2B reach and qualified lead generation.</p></div><span>02</span></article>
+            <article class="platform-card meta"><div class="credential-icon meta-mark" aria-hidden="true"><b>∞</b></div><div><h3>Meta Business</h3><p>Creative social campaigns that attract and convert.</p></div><span>03</span></article>
+            <article class="platform-card hubspot"><div class="credential-icon"><svg><use href="#i-social"/></svg></div><div><h3>HubSpot CRM</h3><p>Organized leads, automation and smarter follow-ups.</p></div><span>04</span></article>
+          </div></div>
         </div>
-        <form id="leadForm" class="lead-form">
-          <input type="text" id="name" placeholder="Your Name" required />
-          <input type="tel" id="phone" placeholder="Phone Number" required />
-          <select id="service" required>
-            <option value="">Select Service</option>
-            <option>Landing Page Design</option>
-            <option>Website Development</option>
-            <option>Ecommerce UI</option>
-            <option>Portfolio Website</option>
-            <option>Social Media Optimization (SMO)</option>
-          </select>
-          <textarea id="message" placeholder="Tell us about your requirement"></textarea>
-          <button type="submit" class="btn btn-primary">Submit Enquiry</button>
-          <p class="form-note" id="formNote">Thank you. Your WhatsApp enquiry message is ready.</p>
-        </form>
+        <div class="assurance-grid reveal">
+          <article class="security"><span><svg><use href="#i-check"/></svg></span><div><h3>Security First</h3><p>Protected workflows and access.</p></div></article>
+          <article class="privacy"><span><svg><use href="#i-report"/></svg></span><div><h3>Privacy Ready</h3><p>Responsible handling of data.</p></div></article>
+          <article class="quality"><span><svg><use href="#i-spark"/></svg></span><div><h3>Quality Assured</h3><p>Every detail checked before launch.</p></div></article>
+          <article class="community"><span><svg><use href="#i-user"/></svg></span><div><h3>Client Focused</h3><p>Clear communication at every step.</p></div></article>
+        </div>
       </div>
+    </section>
+
+    <section class="cta-wrap">
+      <div class="container"><div class="cta reveal">
+        <div class="cta-main">
+          <div class="cta-copy"><span>YOUR NEXT GROWTH MOVE STARTS HERE</span><h2>Ready to <em>Grow</em><br>Your Business?</h2><p>Get a custom strategy, <strong>AI-powered</strong> websites and <strong>result-driven</strong> marketing that delivers real growth.</p></div>
+          <div class="cta-contact"><span>CALL US NOW</span><a class="cta-phone" href="tel:+919871031423"><i><svg><use href="#i-phone"/></svg></i><b>+91 98710 31423</b></a><p>Speak with our experts and grow faster.</p><div class="cta-actions"><a class="cta-action call" href="tel:+919871031423"><svg><use href="#i-phone"/></svg><span><b>Call Now</b><small>Get instant expert support</small></span></a><a class="cta-action whatsapp" href="https://wa.me/919871031423" target="_blank" rel="noopener"><svg><use href="#i-phone"/></svg><span><b>WhatsApp Us</b><small>Chat with our team</small></span></a></div></div>
+        </div>
+        <div class="cta-benefits">
+          <article><span><svg><use href="#i-spark"/></svg></span><div><b>Free Consultation</b><small>100% Free, No Hidden Fees</small></div></article>
+          <article><span><svg><use href="#i-target"/></svg></span><div><b>Custom Strategy</b><small>Tailored to Your Business</small></div></article>
+          <article><span><svg><use href="#i-check"/></svg></span><div><b>No Obligation</b><small>You Decide, No Pressure</small></div></article>
+          <article><span><svg><use href="#i-chart"/></svg></span><div><b>Result Focused</b><small>Growth That Matters</small></div></article>
+        </div>
+        <img class="cta-robot" src="assets/cta-ai-robot-v2.png" alt="Friendly AI assistant robot waving">
+      </div></div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-main">
-      <div class="footer-brand-block">
-        <a href="#home" class="brand footer-brand" aria-label="Digital India Grow Home">
-          <span class="brand-logo-wrap">
-            <img src="assets/digital-india-grow-logo.png" alt="Digital India Grow logo" class="brand-logo" />
-          </span>
-        </a>
-        <p>Digital India Grow creates premium landing pages, business websites and ecommerce-focused digital experiences with a clean and professional presentation.</p>
+  <div class="project-modal" id="projectModal" hidden>
+    <div class="project-modal-backdrop" data-close-project-modal></div>
+    <section class="project-modal-panel" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+      <button class="project-modal-close" type="button" aria-label="Close project form" data-close-project-modal>&times;</button>
+      <span class="portfolio-eyebrow"><svg><use href="#i-spark"/></svg> START YOUR PROJECT</span>
+      <h2 id="projectModalTitle">Build Something <em>Remarkable</em></h2>
+      <p>Share a few details and our team will connect with you for a free strategy discussion.</p>
+      <form class="project-modal-form" id="projectConnectForm" data-whatsapp="919871031423">
+        <label><svg><use href="#i-user"/></svg><input name="name" type="text" placeholder="Your Name" required></label>
+        <label><svg><use href="#i-phone"/></svg><input name="phone" type="tel" placeholder="Phone Number" required></label>
+        <label><svg><use href="#i-mail"/></svg><input name="email" type="email" placeholder="Business Email"></label>
+        <label class="project-select"><svg><use href="#i-building"/></svg><select name="project" required><option value="">Select Project Type</option><option>Landing Page</option><option>Business Website</option><option>E-Commerce Website</option><option>Website Development</option><option>Graphic Design Services</option><option>Advertising Services</option><option>AI Chatbot Integration</option><option>Social Media Management</option><option>Performance Marketing</option><option>SEO Services</option><option>Digital Marketing</option><option>Other</option></select></label>
+        <button class="btn" type="submit">Request Free Consultation <svg><use href="#i-arrow"/></svg></button>
+        <p class="project-form-status" role="status" aria-live="polite"></p>
+      </form>
+      <small><svg><use href="#i-check"/></svg> 100% private. No spam, no obligation.</small>
+    </section>
+  </div>
+
+  <footer class="site-footer footer-v2">
+    <div class="footer-wave footer-wave-one" aria-hidden="true"></div><div class="footer-wave footer-wave-two" aria-hidden="true"></div>
+    <div class="footer-shell">
+      <div class="footer-v2-grid">
+        <div class="footer-v2-brand">
+          <a href="#top" aria-label="Digital India Grow home"><img src="assets/digital-india-grow-footer-dark-v2.png" alt="Digital India Grow — Grow Digitally, Lead Globally"></a>
+          <p>We help businesses grow with AI-powered websites, smart marketing and measurable results that drive real growth.</p>
+          <div class="footer-v2-socials"><a href="#" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a><a href="#" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a><a href="#" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a><a href="#" aria-label="YouTube"><svg><use href="#i-youtube"/></svg></a><a href="#" aria-label="Twitter"><svg><use href="#i-twitter"/></svg></a></div>
+        </div>
+
+        <nav class="footer-v2-col" aria-label="Quick links"><h3>Quick Links</h3><a href="#top">Home</a><a href="#why">About Us</a><a href="#services">Services</a><a href="#why">Why Us</a><a href="#testimonials">Results</a><a href="#contact">Contact Us</a></nav>
+        <nav class="footer-v2-col footer-v2-services" aria-label="Our services"><h3>Our Services</h3><a href="#services">Website Development</a><a href="#services">AI Chatbot Integration</a><a href="#services">Social Media Handling</a><a href="#services">Performance Marketing</a><a href="#services">SEO Services</a></nav>
+        <nav class="footer-v2-col" aria-label="Resources"><h3>Resources</h3><a href="#testimonials">Case Studies</a><a href="#process">Our Process</a><a href="#testimonials">Client Stories</a><a href="#credentials">Partners</a><a href="#contact">FAQs</a></nav>
+
+        <div class="footer-v2-talk"><h3>Let’s Talk</h3><a href="tel:+919871031423"><svg><use href="#i-phone"/></svg><span>+91 9871031423</span></a><a href="mailto:hello@digitalindiagrow.com"><svg><use href="#i-mail"/></svg><span>hello@digitalindiagrow.com</span></a><div><svg><use href="#i-location"/></svg><span>B-123, Sector 63, Noida,<br>Uttar Pradesh 201301, India</span></div><div><svg><use href="#i-clock"/></svg><span>Mon - Sat: 10:00 AM - 7:00 PM</span></div></div>
+
       </div>
 
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <a href="#services">Services</a>
-        <a href="#about-value">About Us</a>
-        <a href="#landing-pages">Landing Pages</a>
-        <a href="#websites">Websites</a>
-        <a href="#contact">Contact</a>
+      <div class="footer-v2-bottom">
+        <div class="footer-security"><svg><use href="#i-check"/></svg><span><b>100% Secure</b><i></i>No Obligation<i></i>Result Focused</span></div>
+        <p>© 2026 Digital India Grow. All Rights Reserved.</p>
+        <div class="footer-trust"><img src="assets/trust-google-partner.svg" alt="Google Partner certified"><img src="assets/trust-meta-partner.svg" alt="Meta Business Partner"><img src="assets/trust-iso-27001.svg" alt="ISO 27001 information security certified"></div>
       </div>
-
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="#services">Landing Page Design</a>
-        <a href="#services">Website Development</a>
-        <a href="#services">Ecommerce UI</a>
-        <a href="#smo">Social Media Optimization</a>
-        <a href="#process">Project Process</a>
-      </div>
-
-      <div class="footer-col footer-contact-col">
-        <h4>Contact</h4>
-        <a href="tel:9871031423">+91 9871031423</a>
-        <a href="https://wa.me/919871031423?text=Hi%20Digital%20India%20Grow%2C%20I%20want%20a%20premium%20landing%20page%20or%20website%20for%20my%20brand." target="_blank" rel="noopener">WhatsApp Us</a>
-        <p class="footer-address">Office Address: New Delhi, Delhi, India</p>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <p>© <span id="year"></span> Digital India Grow. All rights reserved.</p>
-      <p>Based in Delhi • Serving businesses with premium web presentation</p>
     </div>
   </footer>
-
-
-  <a class="whatsapp-sticky" href="https://wa.me/919871031423?text=Hi%20Digital%20India%20Grow%2C%20I%20want%20to%20discuss%20my%20digital%20project." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <span class="wa-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor"><path d="M19.11 17.37c-.26-.13-1.55-.76-1.79-.85-.24-.09-.42-.13-.59.13-.17.26-.68.85-.83 1.02-.15.17-.31.2-.57.07-.26-.13-1.1-.41-2.1-1.3-.78-.69-1.3-1.54-1.45-1.8-.15-.26-.02-.4.11-.53.12-.12.26-.31.39-.46.13-.15.17-.26.26-.44.09-.17.04-.33-.02-.46-.07-.13-.59-1.43-.81-1.96-.21-.51-.43-.44-.59-.45h-.5c-.17 0-.46.07-.7.33-.24.26-.92.9-.92 2.2s.94 2.55 1.07 2.72c.13.17 1.85 2.82 4.48 3.96.63.27 1.11.43 1.49.55.63.2 1.2.17 1.65.1.5-.07 1.55-.63 1.77-1.24.22-.61.22-1.13.15-1.24-.07-.11-.24-.17-.5-.3Z"/><path d="M16.03 3.2c-7.08 0-12.84 5.71-12.84 12.73 0 2.25.6 4.45 1.73 6.38L3.1 28.8l6.69-1.75a12.95 12.95 0 0 0 6.24 1.59h.01c7.08 0 12.84-5.71 12.84-12.73 0-3.4-1.34-6.6-3.77-9-2.43-2.4-5.66-3.72-9.08-3.72Zm0 23.29h-.01c-1.9 0-3.76-.51-5.38-1.47l-.39-.23-3.97 1.04 1.06-3.85-.25-.4a10.5 10.5 0 0 1-1.62-5.65c0-5.85 4.8-10.6 10.7-10.6 2.86 0 5.55 1.1 7.57 3.1 2.02 2 3.14 4.66 3.14 7.49 0 5.85-4.8 10.6-10.85 10.6Z"/></svg></span><span class="wa-text">WhatsApp</span>
-  </a>
+  <div class="toast" role="status">Thanks! Your free consultation request is ready. We'll contact you shortly.</div>
   <script src="script.js"></script>
 </body>
 </html>
