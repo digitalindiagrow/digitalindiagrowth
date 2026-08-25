@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 72" role="img" aria-labelledby="title desc">
+  <title id="title">Google Partner</title><desc id="desc">Premium Google Partner trust badge</desc>
+  <rect x="1" y="1" width="238" height="70" rx="12" fill="#fff" stroke="#e4e5ef" stroke-width="2"/>
+  <g transform="translate(17 12)" fill="none" stroke-width="7" stroke-linecap="round">
+    <path d="M38 14A20 20 0 0 0 8 18" stroke="#ea4335"/>
+    <path d="M8 18A20 20 0 0 0 11 40" stroke="#fbbc05"/>
+    <path d="M11 40A20 20 0 0 0 41 35" stroke="#34a853"/>
+    <path d="M41 35A20 20 0 0 0 43 26H28" stroke="#4285f4"/>
+  </g>
+  <text x="78" y="30" fill="#11143b" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800">Google Partner</text>
+  <text x="78" y="50" fill="#4f566f" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700">CERTIFIED GROWTH PARTNER</text>
+</svg>

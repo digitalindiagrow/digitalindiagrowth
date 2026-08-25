@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">YouTube Ads</title>
+  <defs><linearGradient id="r" x1="24" y1="24" x2="104" y2="106" gradientUnits="userSpaceOnUse"><stop stop-color="#ff6969"/><stop offset=".45" stop-color="#ff2020"/><stop offset="1" stop-color="#d90024"/></linearGradient><filter id="s" x="-25%" y="-30%" width="150%" height="170%"><feDropShadow dy="7" stdDeviation="6" flood-color="#dc1730" flood-opacity=".3"/></filter></defs>
+  <rect x="13" y="28" width="102" height="72" rx="24" fill="url(#r)" filter="url(#s)"/><path d="m55 47 31 17-31 17Z" fill="#fff"/><path d="M31 38c17-7 43-8 64-2" fill="none" stroke="#fff" stroke-opacity=".48" stroke-width="4" stroke-linecap="round"/>
+</svg>

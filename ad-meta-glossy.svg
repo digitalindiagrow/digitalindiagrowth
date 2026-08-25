@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Meta Ads</title>
+  <defs><linearGradient id="g" x1="20" y1="24" x2="108" y2="102" gradientUnits="userSpaceOnUse"><stop stop-color="#53a7ff"/><stop offset=".48" stop-color="#1769f3"/><stop offset="1" stop-color="#2447d8"/></linearGradient><filter id="s" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dy="6" stdDeviation="5" flood-color="#1959df" flood-opacity=".28"/></filter></defs>
+  <path d="M16 81C25 47 36 29 50 29c19 0 28 52 40 52 7 0 12-10 12-21 0-13-6-27-16-27-15 0-25 48-43 48-10 0-17-10-17-22 0-14 7-27 18-27" fill="none" stroke="url(#g)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" filter="url(#s)"/>
+  <path d="M25 47c7-14 15-20 24-18" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linecap="round"/>
+</svg>
