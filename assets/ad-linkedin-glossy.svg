@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">LinkedIn Ads</title>
+  <defs><linearGradient id="b" x1="24" y1="18" x2="105" y2="110" gradientUnits="userSpaceOnUse"><stop stop-color="#49a7eb"/><stop offset=".48" stop-color="#087cbf"/><stop offset="1" stop-color="#075a9b"/></linearGradient><filter id="s" x="-25%" y="-25%" width="150%" height="165%"><feDropShadow dy="7" stdDeviation="6" flood-color="#076aa9" flood-opacity=".28"/></filter></defs>
+  <rect x="15" y="15" width="98" height="98" rx="24" fill="url(#b)" filter="url(#s)"/><circle cx="40" cy="44" r="8" fill="#fff"/><path d="M33 58h14v38H33zM57 58h13v6c5-6 11-8 17-8 15 0 20 10 20 25v15H93V82c0-9-3-13-10-13-8 0-12 5-12 15v12H57z" fill="#fff"/><path d="M27 27h58" stroke="#fff" stroke-opacity=".38" stroke-width="4" stroke-linecap="round"/>
+</svg>
