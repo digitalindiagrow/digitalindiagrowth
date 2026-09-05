@@ -102,6 +102,8 @@ document.querySelectorAll('[data-portfolio-slider]').forEach(slider=>{
   let index=0;
   let visible=3;
   let startX=0;
+  let autoplayTimer=null;
+  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 
   const visibleCards=()=>innerWidth<=650?Number(slider.dataset.mobile||1):innerWidth<=980?Number(slider.dataset.tablet||2):Number(slider.dataset.desktop||3);
   const render=()=>{
@@ -120,22 +122,40 @@ document.querySelectorAll('[data-portfolio-slider]').forEach(slider=>{
       dot.type='button';
       dot.className=`portfolio-dot${dotIndex===index?' active':''}`;
       dot.setAttribute('aria-label',`Go to slide ${dotIndex+1}`);
-      dot.addEventListener('click',()=>{index=dotIndex;render()});
+      dot.addEventListener('click',()=>{index=dotIndex;render();restartAutoplay()});
       dots.appendChild(dot);
     }
   };
 
-  prev.addEventListener('click',()=>{index=Math.max(0,index-1);render()});
-  next.addEventListener('click',()=>{index=Math.min(cards.length-visible,index+1);render()});
+  const stopAutoplay=()=>{if(autoplayTimer){clearInterval(autoplayTimer);autoplayTimer=null}};
+  const startAutoplay=()=>{
+    stopAutoplay();
+    if(reducedMotion.matches||cards.length<=visible||document.hidden)return;
+    autoplayTimer=setInterval(()=>{
+      const maxIndex=Math.max(0,cards.length-visible);
+      index=index>=maxIndex?0:index+1;
+      render();
+    },2200);
+  };
+  const restartAutoplay=()=>{stopAutoplay();startAutoplay()};
+
+  prev.addEventListener('click',()=>{index=index<=0?Math.max(0,cards.length-visible):index-1;render();restartAutoplay()});
+  next.addEventListener('click',()=>{const maxIndex=Math.max(0,cards.length-visible);index=index>=maxIndex?0:index+1;render();restartAutoplay()});
   viewport.addEventListener('touchstart',event=>{startX=event.changedTouches[0].clientX},{passive:true});
   viewport.addEventListener('touchend',event=>{
     const distance=event.changedTouches[0].clientX-startX;
     if(Math.abs(distance)<45)return;
     index=distance<0?Math.min(cards.length-visible,index+1):Math.max(0,index-1);
     render();
+    restartAutoplay();
   },{passive:true});
-  addEventListener('resize',render,{passive:true});
+  slider.addEventListener('focusin',stopAutoplay);
+  slider.addEventListener('focusout',event=>{if(!slider.contains(event.relatedTarget))startAutoplay()});
+  document.addEventListener('visibilitychange',()=>document.hidden?stopAutoplay():startAutoplay());
+  reducedMotion.addEventListener?.('change',startAutoplay);
+  addEventListener('resize',()=>{render();startAutoplay()},{passive:true});
   render();
+  startAutoplay();
 });
 
 const projectModal=document.getElementById('projectModal');
@@ -161,7 +181,7 @@ document.querySelectorAll('[data-open-project-modal]').forEach(button=>button.ad
 }));
 if(projectModal)projectModal.querySelectorAll('[data-close-project-modal]').forEach(button=>button.addEventListener('click',closeProjectModal));
 document.addEventListener('keydown',event=>{if(projectModal&&event.key==='Escape'&&!projectModal.hidden)closeProjectModal()});
-document.querySelectorAll('.service-card>a').forEach(arrow=>{
+document.querySelectorAll('.service-card>a:not([data-page-link])').forEach(arrow=>{
   const card=arrow.closest('.service-card');
   const rawTitle=card.querySelector('h3').innerText.replace(/\s+/g,' ').trim();
   const serviceMap={
@@ -181,6 +201,7 @@ document.querySelectorAll('.service-card>a').forEach(arrow=>{
   });
 });
 document.querySelectorAll('.portfolio-card .portfolio-body').forEach(body=>{
+  if(!projectForm)return;
   const liveLink=body.querySelector('.portfolio-link');
   const card=body.closest('.portfolio-card');
   const section=body.closest('.portfolio-section');
@@ -335,3 +356,18 @@ if(contactForm){
     }
   });
 }
+
+document.querySelectorAll('.home-faq-item').forEach(item=>{
+  const trigger=item.querySelector('button');
+  trigger.addEventListener('click',()=>{
+    const willOpen=!item.classList.contains('open');
+    document.querySelectorAll('.home-faq-item').forEach(other=>{
+      other.classList.remove('open');
+      other.querySelector('button')?.setAttribute('aria-expanded','false');
+    });
+    if(willOpen){
+      item.classList.add('open');
+      trigger.setAttribute('aria-expanded','true');
+    }
+  });
+});
