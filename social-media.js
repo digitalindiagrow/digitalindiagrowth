@@ -1,0 +1,17 @@
+(function(){
+  'use strict';
+  var input=document.getElementById('sm-months');
+  if(!input)return;
+  var out=document.getElementById('sm-month-output'),price=document.getElementById('sm-total-price'),period=document.getElementById('sm-period'),days=document.getElementById('sm-posting-days'),videos=document.getElementById('sm-videos'),weeks=document.getElementById('sm-weeks'),weekly=document.getElementById('sm-weekly-price'),whatsapp=document.getElementById('sm-whatsapp');
+  function money(value){return new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(value)}
+  function pulseResults(){var result=document.querySelector('.sm-calc-result');if(!result)return;result.classList.remove('is-updating');void result.offsetWidth;result.classList.add('is-updating');window.setTimeout(function(){result.classList.remove('is-updating')},180)}
+  function update(){var months=Number(input.value),totalWeeks=months*4,total=months*7000,label=months+(months===1?' month':' months');out.textContent=label;price.textContent=money(total);period.textContent='for '+label;days.textContent=String(totalWeeks*5);videos.textContent=String(totalWeeks*2);weeks.textContent=String(totalWeeks);weekly.textContent=money(Math.round(total/totalWeeks));input.style.setProperty('--range-progress',((months-1)/11*100)+'%');var message='Hello Digital India Grow, I am interested in the Social Growth Plan for '+label+'. Estimated investment: '+money(total)+', with '+(totalWeeks*5)+' posting days and '+(totalWeeks*2)+' videos/reels. Please share the next steps.';whatsapp.href='https://wa.me/919871031423?text='+encodeURIComponent(message);pulseResults()}
+  input.addEventListener('input',update);update();
+  document.querySelectorAll('.sm-process-grid article,.sm-trust-grid span').forEach(function(item){item.classList.add('sm-reveal')});
+  var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items=document.querySelectorAll('.sm-reveal');
+  items.forEach(function(item,index){item.style.setProperty('--sm-delay',Math.min(index%6,4)*55+'ms')});
+  function animateCounter(element){if(element.dataset.counted)return;element.dataset.counted='true';var target=Number(element.dataset.smCount),decimals=Number(element.dataset.decimals||0),prefix=element.dataset.prefix||'',suffix=element.dataset.suffix||'',start=performance.now(),duration=900;function frame(now){var progress=Math.min((now-start)/duration,1),eased=1-Math.pow(1-progress,3),value=target*eased;element.textContent=prefix+value.toFixed(decimals)+suffix;if(progress<1)requestAnimationFrame(frame)}requestAnimationFrame(frame)}
+  var counters=document.querySelectorAll('[data-sm-count]');
+  if('IntersectionObserver' in window&&!reduceMotion){var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('sm-visible');entry.target.querySelectorAll('[data-sm-count]').forEach(animateCounter);if(entry.target.matches('[data-sm-count]'))animateCounter(entry.target);observer.unobserve(entry.target)}})},{threshold:.12});items.forEach(function(item){observer.observe(item)});counters.forEach(function(counter){observer.observe(counter)})}else{items.forEach(function(item){item.classList.add('sm-visible')});counters.forEach(function(counter){var target=Number(counter.dataset.smCount),decimals=Number(counter.dataset.decimals||0);counter.textContent=(counter.dataset.prefix||'')+target.toFixed(decimals)+(counter.dataset.suffix||'')})}
+}());

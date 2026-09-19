@@ -23,6 +23,11 @@
     if (window.innerWidth > 900) closeMenu();
   });
 
+  document.querySelectorAll("#web-work-showcase .portfolio-card").forEach((card, index) => {
+    const projectNumber = card.querySelector(".portfolio-meta b");
+    if (projectNumber) projectNumber.textContent = String(index + 1).padStart(2, "0");
+  });
+
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const revealItems = document.querySelectorAll(".gd-reveal");
 
@@ -50,6 +55,67 @@
       }, { threshold: 0.25 });
       processObserver.observe(processFlow);
     }
+  }
+
+  const estimatorType = document.getElementById("web-estimator-type");
+  const estimatorPages = document.getElementById("web-estimator-pages");
+  const estimatorFeatures = Array.from(document.querySelectorAll(".web-estimator-features input"));
+  const estimatorResult = document.querySelector(".web-estimator-result");
+
+  if (estimatorType && estimatorPages && estimatorResult) {
+    const formatMoney = (value) => new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0
+    }).format(value);
+    const updateEstimate = () => {
+      const pages = Number(estimatorPages.value);
+      const selectedFeatures = estimatorFeatures.filter((input) => input.checked);
+      const base = Number(estimatorType.value);
+      const selectedType = estimatorType.options[estimatorType.selectedIndex];
+      const pageRate = Number(selectedType.dataset.pageRate || 1500);
+      const includedPages = Number(selectedType.dataset.includedPages || 0);
+      const bookingRate = Number(selectedType.dataset.bookingRate || 500);
+      const chargeablePages = Math.max(0, pages - includedPages);
+      const pageCost = chargeablePages * pageRate;
+      const featureCost = selectedFeatures.reduce((total, input) => {
+        return total + (input.dataset.feature === "Booking Setup" ? bookingRate : Number(input.value));
+      }, 0);
+      const packagePrice = base + pageCost + featureCost;
+      const pageLabel = `${pages} ${pages === 1 ? "page" : "pages"}`;
+      const typeLabel = estimatorType.options[estimatorType.selectedIndex].text;
+      const featureLabels = selectedFeatures.map((input) => input.dataset.feature);
+
+      document.getElementById("web-page-output").textContent = pageLabel;
+      document.getElementById("web-estimate-price").textContent = formatMoney(packagePrice);
+      document.getElementById("web-estimate-type").textContent = typeLabel;
+      document.getElementById("web-estimate-pages").textContent = pageLabel;
+      document.getElementById("web-estimate-features").textContent = featureLabels.length ? featureLabels.join(", ") : "Standard build";
+      document.getElementById("web-booking-price").textContent = formatMoney(bookingRate);
+      estimatorPages.style.setProperty("--web-progress", `${((pages - 1) / 11) * 100}%`);
+
+      const message = [
+        "Hello Digital India Grow, I used the Website Project Estimator.",
+        `Website: ${typeLabel}`,
+        `Pages: ${pageLabel}`,
+        `Pages included: ${includedPages}`,
+        `Page rate: ${formatMoney(pageRate)} per page`,
+        `Features: ${featureLabels.length ? featureLabels.join(", ") : "Standard build"}`,
+        `Package price: ${formatMoney(packagePrice)}`,
+        "Please help me plan the next steps."
+      ].join("\n");
+      document.getElementById("web-estimate-whatsapp").href = `https://wa.me/919871031423?text=${encodeURIComponent(message)}`;
+
+      estimatorResult.classList.remove("is-updating");
+      void estimatorResult.offsetWidth;
+      estimatorResult.classList.add("is-updating");
+      window.setTimeout(() => estimatorResult.classList.remove("is-updating"), 180);
+    };
+
+    estimatorType.addEventListener("change", updateEstimate);
+    estimatorPages.addEventListener("input", updateEstimate);
+    estimatorFeatures.forEach((input) => input.addEventListener("change", updateEstimate));
+    updateEstimate();
   }
 
   const modal = document.getElementById("designModal");
@@ -105,8 +171,8 @@
       phone: values.phone || "",
       email: values.email || "",
       website: "",
-      requirement: values.requirement || "Graphic Design Consultation",
-      source: "Graphic Design Page",
+      requirement: values.requirement || "Website Development Consultation",
+      source: "Website Development Page",
       page_url: window.location.href,
       submitted_at: new Date().toISOString()
     });
@@ -124,9 +190,9 @@
         body: payload.toString()
       });
 
-      setStatus("Request sent. Our design team will contact you shortly.");
+      setStatus("Request sent. Our website team will contact you shortly.");
       const message = [
-        "Hello Digital India Grow, I submitted a graphic design consultation request.",
+        "Hello Digital India Grow, I submitted a website development consultation request.",
         `Name: ${values.name}`,
         `Phone: ${values.phone}`,
         `Service: ${values.requirement}`
